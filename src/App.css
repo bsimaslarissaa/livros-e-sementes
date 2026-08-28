@@ -67,6 +67,38 @@ nav a:hover {
 
 
 /* =========================
+   BOTÃO DO MENU MOBILE
+========================= */
+
+.menu-mobile {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.menu-mobile span {
+  width: 26px;
+  height: 2px;
+
+  background-color: white;
+
+  border-radius: 2px;
+}
+
+
+/* =========================
    HOME
 ========================= */
 
@@ -137,7 +169,7 @@ nav a:hover {
 
 
 /* =========================
-   BOTÕES
+   BOTÕES DA HERO
 ========================= */
 
 .hero-botoes {
@@ -227,21 +259,76 @@ nav a:hover {
 
 
 /* =========================
-   RESPONSIVIDADE
+   TABLET E CELULAR
 ========================= */
 
 @media (max-width: 900px) {
 
+  /* HEADER MOBILE */
+
   header {
+    position: relative;
+
     padding: 16px 20px;
+
+    gap: 15px;
   }
+
+  header strong {
+    font-size: 1.25rem;
+  }
+
+  .menu-mobile {
+    display: flex;
+
+    flex-shrink: 0;
+  }
+
+  nav {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #3f5d32;
+
+    padding: 18px 20px 24px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    z-index: 1000;
+  }
+
+  nav.nav-aberto {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+
+    font-size: 1rem;
+
+    padding: 8px 0;
+  }
+
+
+  /* HERO MOBILE */
 
   .hero {
     flex-direction: column;
 
-    text-align: center;
+    padding: 45px 22px 50px;
 
-    padding: 50px 25px;
+    gap: 45px;
+
+    text-align: center;
   }
 
   .hero-conteudo {
@@ -249,25 +336,94 @@ nav a:hover {
     max-width: 100%;
   }
 
+  .hero-subtitulo {
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+  }
+
   .hero h1 {
     font-size: 2.7rem;
+    line-height: 1.1;
+
+    margin-bottom: 25px;
   }
 
   .hero-descricao {
+    font-size: 1.05rem;
+    line-height: 1.65;
+
     margin: 0 auto;
   }
 
   .hero-botoes {
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 14px;
+
+    margin-top: 30px;
+  }
+
+  .botao-principal,
+  .botao-secundario {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    text-align: center;
   }
 
   .hero-ilustracao {
     width: 100%;
-    min-width: auto;
+    min-width: 0;
   }
 
   .hero-imagem {
-    max-width: 550px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .hero-imagem img {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-imagem p {
+    font-size: 1rem;
+
+    margin-top: 15px;
+  }
+}
+
+
+/* =========================
+   CELULARES MENORES
+========================= */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 38px 18px 45px;
+
+    gap: 35px;
+  }
+
+  .hero-subtitulo {
+    font-size: 0.78rem;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-descricao {
+    font-size: 1rem;
+  }
+
+  .hero-imagem {
+    max-width: 380px;
   }
 }
