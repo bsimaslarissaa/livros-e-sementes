@@ -427,3 +427,64 @@ nav a:hover {
     max-width: 380px;
   }
 }
+
+
+/* modo escuro */
+
+html.dark header {
+  background-color: #141f10;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .menu-mobile span {
+  background-color: #e6edd3;
+}
+
+html.dark nav {
+  background-color: #141f10;
+}
+
+html.dark .hero {
+  background-color: #1a2916;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .hero-subtitulo {
+  color: #94b555;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .hero h1 {
+  color: #e6edd3;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .hero-descricao {
+  color: #bdc7b5;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .botao-principal {
+  background-color: #517541;
+  color: #1a2916;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .botao-principal:hover {
+  background-color: #608a4e;
+}
+
+html.dark .botao-secundario {
+  border-color: #517541;
+  color: #517541;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark .botao-secundario:hover {
+  background-color: #517541;
+  color: #1a2916;
+}
+
+html.dark .hero-ilustracao {
+  color: #bda28a;
+}
