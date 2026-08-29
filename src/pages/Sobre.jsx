@@ -1,11 +1,16 @@
+import { Link } from 'react-router-dom'
 
 function Sobre() {
   return (
     <main className="sobre">
+
+      {/* APRESENTAÇÃO */}
       <section className="sobre-hero">
+
         <div className="sobre-conteudo">
+
           <p className="sobre-subtitulo">
-            Sobre o Livros & Sementes
+            Sobre Livros & Sementes
           </p>
 
           <h1>
@@ -25,16 +30,22 @@ function Sobre() {
             novas oportunidades de aprendizado, cultivo e convivência entre
             pessoas da comunidade.
           </p>
+
         </div>
 
         <div className="sobre-destaque">
           <span>
-            Compartilhar também é uma forma de cultivar.
+            Compartilhar também é<br />
+            uma forma de cultivar.
           </span>
         </div>
+
       </section>
 
+
+      {/* CARDS */}
       <section className="sobre-blocos">
+
         <article className="sobre-card">
           <span className="sobre-numero">01</span>
 
@@ -45,6 +56,7 @@ function Sobre() {
             rede acessível e colaborativa entre os participantes.
           </p>
         </article>
+
 
         <article className="sobre-card">
           <span className="sobre-numero">02</span>
@@ -58,6 +70,7 @@ function Sobre() {
           </p>
         </article>
 
+
         <article className="sobre-card">
           <span className="sobre-numero">03</span>
 
@@ -69,10 +82,15 @@ function Sobre() {
             parceiros da comunidade.
           </p>
         </article>
+
       </section>
 
+
+      {/* MISSÃO */}
       <section className="sobre-missao">
+
         <div className="sobre-missao-conteudo">
+
           <p className="sobre-subtitulo">
             Nossa missão
           </p>
@@ -86,8 +104,47 @@ function Sobre() {
             ambiental, a reutilização de recursos e o fortalecimento dos
             vínculos comunitários.
           </p>
+
         </div>
+
       </section>
+
+
+      {/* CHAMADA FINAL */}
+      <section className="sobre-cta">
+
+        <div className="sobre-cta-conteudo">
+
+          <p className="sobre-subtitulo">
+            Faça parte dessa rede
+          </p>
+
+          <h2>
+            Compartilhe hoje aquilo que pode transformar o amanhã.
+          </h2>
+
+          <p>
+            Uma história que você já leu pode ser a próxima descoberta de
+            alguém. Uma semente que você compartilha pode ser o início de um
+            novo cultivo.
+          </p>
+
+          <div className="sobre-cta-botoes">
+
+            <Link to="/livros" className="botao-principal">
+              Explorar livros
+            </Link>
+
+            <Link to="/sementes" className="botao-secundario">
+              Explorar sementes
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </main>
   )
 }

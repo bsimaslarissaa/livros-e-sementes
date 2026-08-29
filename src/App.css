@@ -1,6 +1,4 @@
-/* =========================
-   CONFIGURAÇÃO GERAL
-========================= */
+/* CONFIGURAÇÃO GERAL */
 
 #root {
   width: 100%;
@@ -11,9 +9,7 @@
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header {
   width: 100%;
@@ -66,9 +62,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   BOTÃO DO MENU MOBILE
-========================= */
+/* BOTÃO DO MENU MOBILE */
 
 .menu-mobile {
   display: none;
@@ -98,9 +92,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
 .home {
   flex: 1;
@@ -108,9 +100,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO*/
 
 .hero {
   flex: 1;
@@ -128,9 +118,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   CONTEÚDO ESQUERDO
-========================= */
+/* CONTEÚDO ESQUERDO */
 
 .hero-conteudo {
   width: 55%;
@@ -168,9 +156,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   BOTÕES DA HERO
-========================= */
+/*BOTÕES DA HERO*/
 
 .hero-botoes {
   display: flex;
@@ -215,9 +201,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   ILUSTRAÇÃO
-========================= */
+/* ILUSTRAÇÃO*/
 
 .hero-ilustracao {
   width: 45%;
@@ -258,9 +242,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   TABLET E CELULAR
-========================= */
+/* TABLET E CELULAR */
 
 @media (max-width: 900px) {
 
@@ -399,9 +381,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   CELULARES MENORES
-========================= */
+/* CELULARES MENORES */
 
 @media (max-width: 480px) {
 
@@ -487,4 +467,467 @@ html.dark .botao-secundario:hover {
 
 html.dark .hero-ilustracao {
   color: #bda28a;
+}
+
+/*PÁGINA SOBRE */
+
+
+/* APRESENTAÇÃO / HERO */
+
+.sobre {
+  width: 100%;
+  background-color: #fffdf7;
+}
+
+.sobre-hero {
+  display: grid;
+  grid-template-columns: 1.5fr 0.9fr;
+  align-items: center;
+  gap: 80px;
+
+  padding: 95px 7%;
+  background-color: #f4ecd8;
+}
+
+.sobre-conteudo {
+  max-width: 820px;
+}
+
+.sobre-subtitulo {
+  color: #6f8a3c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  margin-bottom: 22px;
+}
+
+.sobre-conteudo h1 {
+  color: #3f5d32;
+  font-size: 3.4rem;
+  line-height: 1.15;
+
+  margin-bottom: 32px;
+}
+
+.sobre-conteudo > p:not(.sobre-subtitulo) {
+  color: #5c5148;
+  font-size: 1.08rem;
+  line-height: 1.8;
+
+  margin-bottom: 20px;
+}
+
+.sobre-destaque {
+  min-height: 340px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 45px;
+
+  background-color: #3f6334;
+  border-radius: 22px;
+
+  text-align: center;
+}
+
+.sobre-destaque span {
+  max-width: 360px;
+
+  color: #f4ecd8;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+
+/* CARDS */
+
+.sobre-blocos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  padding: 75px 7% 90px;
+
+  background-color: #fffdf7;
+}
+
+.sobre-card {
+  padding: 38px 38px 42px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 20px;
+}
+
+.sobre-numero {
+  display: block;
+
+  color: #8aa05a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  margin-bottom: 28px;
+}
+
+.sobre-card h2 {
+  color: #3f5d32;
+  font-size: 1.45rem;
+
+  margin-bottom: 18px;
+}
+
+.sobre-card p {
+  color: #5c5148;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+/* NOSSA MISSÃO */
+
+.sobre-missao {
+  padding: 95px 7%;
+
+  background-color: #e9dfc3;
+
+  text-align: center;
+}
+
+.sobre-missao-conteudo {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre-missao .sobre-subtitulo {
+  margin-bottom: 22px;
+}
+
+.sobre-missao h2 {
+  color: #3f5d32;
+
+  font-size: 2.7rem;
+  line-height: 1.2;
+
+  margin-bottom: 28px;
+}
+
+.sobre-missao-conteudo > p:not(.sobre-subtitulo) {
+  max-width: 780px;
+  margin: 0 auto;
+
+  color: #5c5148;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+
+/* CHAMADA FINAL */
+
+.sobre-cta {
+  padding: 90px 7%;
+
+  background-color: #fffdf7;
+}
+
+.sobre-cta-conteudo {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.sobre-cta .sobre-subtitulo {
+  margin-bottom: 22px;
+}
+
+.sobre-cta h2 {
+  color: #3f5d32;
+
+  font-size: 2.5rem;
+  line-height: 1.2;
+
+  margin-bottom: 22px;
+}
+
+.sobre-cta-conteudo > p:not(.sobre-subtitulo) {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: #5c5148;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+
+/* BOTÕES DA CHAMADA FINAL */
+
+.sobre-cta-botoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.sobre-cta-botoes .botao-principal,
+.sobre-cta-botoes .botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 180px;
+
+  padding: 14px 25px;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.sobre-cta-botoes .botao-principal {
+  color: #ffffff;
+  background-color: #3f6334;
+  border: 2px solid #3f6334;
+}
+
+.sobre-cta-botoes .botao-secundario {
+  color: #3f6334;
+  background-color: transparent;
+  border: 2px solid #3f6334;
+}
+
+.sobre-cta-botoes .botao-principal:hover,
+.sobre-cta-botoes .botao-secundario:hover {
+  transform: translateY(-2px);
+}
+
+.sobre-cta-botoes .botao-secundario:hover {
+  background-color: #f4ecd8;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .sobre-hero {
+    grid-template-columns: 1fr;
+    gap: 45px;
+
+    padding: 70px 40px;
+  }
+
+  .sobre-conteudo {
+    max-width: 100%;
+  }
+
+  .sobre-conteudo h1 {
+    font-size: 2.8rem;
+  }
+
+  .sobre-destaque {
+    min-height: 240px;
+  }
+
+  .sobre-destaque span {
+    font-size: 1.6rem;
+  }
+
+
+  /* CARDS */
+
+  .sobre-blocos {
+    grid-template-columns: 1fr;
+
+    padding: 60px 40px 75px;
+  }
+
+
+  /* MISSÃO */
+
+  .sobre-missao {
+    padding: 75px 40px;
+  }
+
+  .sobre-missao h2 {
+    font-size: 2.2rem;
+  }
+
+
+  /* CHAMADA FINAL */
+
+  .sobre-cta {
+    padding: 75px 40px;
+  }
+
+  .sobre-cta h2 {
+    font-size: 2.2rem;
+  }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+  .sobre-hero {
+    gap: 35px;
+
+    padding: 55px 24px;
+  }
+
+  .sobre-subtitulo {
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 18px;
+  }
+
+  .sobre-conteudo h1 {
+    font-size: 2.3rem;
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+  }
+
+  .sobre-conteudo > p:not(.sobre-subtitulo) {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .sobre-destaque {
+    min-height: 210px;
+
+    padding: 35px 25px;
+
+    border-radius: 18px;
+  }
+
+  .sobre-destaque span {
+    font-size: 1.45rem;
+  }
+
+
+  /* CARDS */
+
+  .sobre-blocos {
+    gap: 20px;
+
+    padding: 45px 24px 60px;
+  }
+
+  .sobre-card {
+    padding: 30px 26px;
+
+    border-radius: 16px;
+  }
+
+  .sobre-numero {
+    margin-bottom: 20px;
+  }
+
+  .sobre-card h2 {
+    font-size: 1.35rem;
+  }
+
+
+  /* MISSÃO */
+
+  .sobre-missao {
+    padding: 65px 24px;
+  }
+
+  .sobre-missao h2 {
+    font-size: 2rem;
+  }
+
+  .sobre-missao-conteudo > p:not(.sobre-subtitulo) {
+    font-size: 1rem;
+  }
+
+
+  /* CHAMADA FINAL */
+
+  .sobre-cta {
+    padding: 65px 24px;
+  }
+
+  .sobre-cta h2 {
+    font-size: 2rem;
+  }
+
+  .sobre-cta-conteudo > p:not(.sobre-subtitulo) {
+    font-size: 1rem;
+  }
+
+  .sobre-cta-botoes {
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 14px;
+  }
+
+  .sobre-cta-botoes .botao-principal,
+  .sobre-cta-botoes .botao-secundario {
+    width: 100%;
+  }
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 480px) {
+
+  .sobre-hero {
+    padding: 45px 20px;
+  }
+
+  .sobre-conteudo h1 {
+    font-size: 2rem;
+  }
+
+  .sobre-destaque {
+    min-height: 190px;
+  }
+
+  .sobre-destaque span {
+    font-size: 1.3rem;
+  }
+
+  .sobre-blocos {
+    padding: 40px 20px 55px;
+  }
+
+  .sobre-missao {
+    padding: 55px 20px;
+  }
+
+  .sobre-missao h2 {
+    font-size: 1.8rem;
+  }
+
+  .sobre-cta {
+    padding: 55px 20px;
+  }
+
+  .sobre-cta h2 {
+    font-size: 1.8rem;
+  }
 }
