@@ -1,12 +1,15 @@
+
 function Sobre() {
   return (
     <main className="sobre">
       <section className="sobre-hero">
         <div className="sobre-conteudo">
-          <p className="sobre-subtitulo">Sobre o Livros & Sementes</p>
+          <p className="sobre-subtitulo">
+            Sobre o Livros & Sementes
+          </p>
 
           <h1>
-            Conectando pessoas,
+            Conectando pessoas,<br />
             histórias e natureza.
           </h1>
 
@@ -25,12 +28,16 @@ function Sobre() {
         </div>
 
         <div className="sobre-destaque">
-          <span>Compartilhar também é uma forma de cultivar.</span>
+          <span>
+            Compartilhar também é uma forma de cultivar.
+          </span>
         </div>
       </section>
 
       <section className="sobre-blocos">
         <article className="sobre-card">
+          <span className="sobre-numero">01</span>
+
           <h2>Nossa proposta</h2>
 
           <p>
@@ -40,6 +47,8 @@ function Sobre() {
         </article>
 
         <article className="sobre-card">
+          <span className="sobre-numero">02</span>
+
           <h2>Por que existimos</h2>
 
           <p>
@@ -50,6 +59,8 @@ function Sobre() {
         </article>
 
         <article className="sobre-card">
+          <span className="sobre-numero">03</span>
+
           <h2>Como funciona</h2>
 
           <p>
@@ -61,8 +72,10 @@ function Sobre() {
       </section>
 
       <section className="sobre-missao">
-        <div>
-          <p className="sobre-subtitulo">Nossa missão</p>
+        <div className="sobre-missao-conteudo">
+          <p className="sobre-subtitulo">
+            Nossa missão
+          </p>
 
           <h2>
             Pequenas trocas podem gerar grandes transformações.
