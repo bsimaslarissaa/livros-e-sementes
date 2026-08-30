@@ -1736,3 +1736,341 @@ html.dark .login-mensagem {
     font-size: 2rem;
   }
 }
+
+/* PÁGINA CADASTRO */
+
+.cadastro-container {
+  flex: 1;
+  min-height: calc(100vh - 80px);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: #f4ecd8;
+}
+
+
+/* LADO ESQUERDO */
+
+.cadastro-mensagem {
+  min-height: 100%;
+
+  padding: 70px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #3f6334;
+}
+
+.cadastro-mensagem > div {
+  max-width: 520px;
+}
+
+.cadastro-mensagem-subtitulo {
+  color: #c5d29b;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  margin-bottom: 18px;
+}
+
+.cadastro-mensagem h2 {
+  color: #f4ecd8;
+
+  font-size: 3rem;
+  line-height: 1.15;
+
+  margin-bottom: 26px;
+}
+
+.cadastro-mensagem > div > p:not(.cadastro-mensagem-subtitulo) {
+  color: #e3ead9;
+
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+
+/* LADO DIREITO */
+
+.cadastro-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 620px;
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.cadastro-header {
+  margin-bottom: 30px;
+}
+
+.cadastro-subtitulo {
+  color: #6f8a3c;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  margin-bottom: 12px;
+}
+
+.cadastro-header h1 {
+  color: #3f5d32;
+
+  font-size: 2.8rem;
+
+  margin-bottom: 14px;
+}
+
+.cadastro-header > p:not(.cadastro-subtitulo) {
+  color: #5c5148;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* FORMULÁRIO */
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.cadastro-grupo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.cadastro-grupo label {
+  color: #3f5d32;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.cadastro-grupo input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 2px solid #dfd2b8;
+  border-radius: 8px;
+
+  background-color: #fffdf7;
+  color: #5c5148;
+
+  font-size: 1rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.cadastro-grupo input:focus {
+  border-color: #3f5d32;
+}
+
+
+/* TERMOS */
+
+.cadastro-termos {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  color: #5c5148;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cadastro-termos input {
+  margin-top: 3px;
+
+  accent-color: #3f5d32;
+}
+
+
+/* BOTÃO */
+
+.cadastro-botao {
+  width: 100%;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #3f5d32;
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cadastro-botao:hover {
+  background-color: #314a27;
+  transform: translateY(-1px);
+}
+
+
+/* LINK PARA LOGIN */
+
+.cadastro-login {
+  margin-top: 26px;
+
+  text-align: center;
+
+  color: #5c5148;
+
+  font-size: 0.95rem;
+}
+
+.cadastro-login a {
+  color: #3f5d32;
+
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cadastro-login a:hover {
+  text-decoration: underline;
+}
+
+
+/* MODO ESCURO - CADASTRO */
+
+html.dark .cadastro-container {
+  background-color: #1a2916;
+}
+
+html.dark .cadastro-mensagem {
+  background-color: #141f10;
+}
+
+html.dark .cadastro-subtitulo {
+  color: #94b555;
+}
+
+html.dark .cadastro-header h1 {
+  color: #e6edd3;
+}
+
+html.dark .cadastro-header > p:not(.cadastro-subtitulo) {
+  color: #bdc7b5;
+}
+
+html.dark .cadastro-grupo label {
+  color: #e6edd3;
+}
+
+html.dark .cadastro-grupo input {
+  background-color: #141f10;
+  border-color: #2d4227;
+  color: #e6edd3;
+}
+
+html.dark .cadastro-grupo input::placeholder {
+  color: #7f8c78;
+}
+
+html.dark .cadastro-grupo input:focus {
+  border-color: #94b555;
+}
+
+html.dark .cadastro-termos {
+  color: #bdc7b5;
+}
+
+html.dark .cadastro-botao {
+  background-color: #517541;
+  color: #141f10;
+}
+
+html.dark .cadastro-botao:hover {
+  background-color: #608a4e;
+}
+
+html.dark .cadastro-login {
+  color: #bdc7b5;
+}
+
+html.dark .cadastro-login a {
+  color: #94b555;
+}
+
+
+/* RESPONSIVIDADE - CADASTRO */
+
+@media (max-width: 900px) {
+
+  .cadastro-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cadastro-mensagem {
+    min-height: 320px;
+
+    padding: 55px 35px;
+
+    text-align: center;
+  }
+
+  .cadastro-mensagem h2 {
+    font-size: 2.4rem;
+  }
+
+  .cadastro-card {
+    max-width: 680px;
+
+    padding: 60px 35px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .cadastro-mensagem {
+    padding: 45px 24px;
+  }
+
+  .cadastro-mensagem h2 {
+    font-size: 2rem;
+  }
+
+  .cadastro-card {
+    padding: 45px 24px;
+  }
+
+  .cadastro-header h1 {
+    font-size: 2.3rem;
+  }
+}
