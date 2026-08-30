@@ -79,6 +79,14 @@
     transform 0.2s ease;
 }
 
+/* ÍCONE DE SOL / LUA */
+
+.tema-toggle svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
 .tema-toggle:hover {
   background-color: rgba(255, 255, 255, 0.12);
   transform: scale(1.05);
