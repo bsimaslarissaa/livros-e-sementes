@@ -9,6 +9,7 @@ import Sementes from './pages/Sementes'
 import PontosTroca from './pages/PontosTroca'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
+import AdicionarLivro from './pages/AdicionarLivro'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/pontos-troca" element={<PontosTroca />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/addlivro" element={<AdicionarLivro />} />
       </Routes>
     </BrowserRouter>
   )
