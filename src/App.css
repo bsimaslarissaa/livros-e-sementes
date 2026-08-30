@@ -973,3 +973,167 @@ html.dark .hero-ilustracao {
     font-size: 1.8rem;
   }
 }
+
+/* livros seção */
+
+.livros-container {
+  flex: 1; 
+  padding: 40px 7%;
+  background-color: #f4ecd8;
+  min-height: calc(100vh - 80px);
+  transition: background-color 0.3s ease;
+}
+
+.livros-header {
+  margin-bottom: 40px;
+}
+
+.livros-header h1 {
+  color: #3f5d32;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.livros-header p {
+  color: #5c5148;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.livro-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(63, 93, 50, 0.08); 
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+
+.livro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
+}
+
+
+.card-capa {
+  background-color: #eaddca;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.card-capa img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.card-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card-genero {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #6f8a3c;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.card-info h3 {
+  color: #3f5d32;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.card-autor, 
+.card-doador {
+  font-size: 0.95rem;
+  color: #5c5148;
+  transition: color 0.3s ease;
+}
+
+.botao-secundario-pequeno {
+  margin-top: auto;
+  padding: 10px;
+  border: 2px solid #3f5d32;
+  color: #3f5d32;
+  background-color: transparent;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.3s;
+}
+
+.botao-secundario-pequeno:hover {
+  background-color: #3f5d32;
+  color: white;
+}
+
+
+/* modo escuro */
+
+html.dark .livros-container {
+  background-color: #1a2916;
+}
+
+html.dark .livros-header h1 {
+  color: #e6edd3;
+}
+
+html.dark .livros-header p {
+  color: #bdc7b5;}
+
+html.dark .livro-card {
+  background-color: #141f10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .card-capa {
+  background-color: #1b2917;
+}
+
+html.dark .card-info h3 {
+  color: #e6edd3;
+}
+
+html.dark .card-genero {
+  color: #94b555;
+}
+
+html.dark .card-autor, 
+html.dark .card-doador {
+  color: #bdc7b5;
+}
+
+html.dark .botao-secundario-pequeno {
+  border-color: #517541;
+  color: #517541;
+}
+
+html.dark .botao-secundario-pequeno:hover {
+  background-color: #517541;
+  color: #1a2916;
+}
