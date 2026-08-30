@@ -42,6 +42,48 @@
   white-space: nowrap;
 }
 
+/* AÇÕES DO HEADER */
+
+.header-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* BOTÃO DE TEMA */
+
+.tema-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: transparent;
+  color: white;
+
+  font-size: 1.6rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tema-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: scale(1.05);
+}
+
 /* BOTÃO DO MENU MOBILE */
 
 .menu-toggle {
@@ -76,9 +118,7 @@
     opacity 0.25s ease;
 }
 
-/* ========================================
-   MENU EXPANSÍVEL
-======================================== */
+/* MENU EXPANSÍVEL*/
 
 .menu-expansivel {
   display: none;
@@ -302,46 +342,6 @@
     font-size: 1.25rem;
   }
 
-  .menu-mobile {
-    display: flex;
-
-    flex-shrink: 0;
-  }
-
-  nav {
-    display: none;
-
-    position: absolute;
-
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-
-    background-color: #3f5d32;
-
-    padding: 18px 20px 24px;
-
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 12px;
-
-    z-index: 1000;
-  }
-
-  nav.nav-aberto {
-    display: flex;
-  }
-
-  nav a {
-    width: 100%;
-
-    font-size: 1rem;
-
-    padding: 8px 0;
-  }
-
 
   /* HERO MOBILE */
 
@@ -453,17 +453,24 @@
 
 /* modo escuro */
 
-html.dark header {
+html.dark .site-header {
   background-color: #141f10;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
-html.dark .menu-mobile span {
+html.dark .menu-toggle span {
   background-color: #e6edd3;
 }
 
-html.dark nav {
+html.dark .menu-expansivel {
   background-color: #141f10;
+}
+
+html.dark .tema-toggle {
+  color: #e6edd3;
 }
 
 html.dark .hero {
@@ -761,6 +768,107 @@ html.dark .hero-ilustracao {
 
 .sobre-cta-botoes .botao-secundario:hover {
   background-color: #f4ecd8;
+}
+
+/*MODO ESCURO - PÁGINA SOBRE */
+
+html.dark .sobre {
+  background-color: #1a2916;
+}
+
+html.dark .sobre-hero {
+  background-color: #1a2916;
+}
+
+html.dark .sobre-subtitulo {
+  color: #94b555;
+}
+
+html.dark .sobre-conteudo h1 {
+  color: #e6edd3;
+}
+
+html.dark .sobre-conteudo > p:not(.sobre-subtitulo) {
+  color: #bdc7b5;
+}
+
+html.dark .sobre-destaque {
+  background-color: #2d4726;
+}
+
+html.dark .sobre-destaque span {
+  color: #e6edd3;
+}
+
+
+/* CARDS */
+
+html.dark .sobre-blocos {
+  background-color: #182414;
+}
+
+html.dark .sobre-card {
+  background-color: #141f10;
+  border-color: #2d4227;
+}
+
+html.dark .sobre-numero {
+  color: #94b555;
+}
+
+html.dark .sobre-card h2 {
+  color: #e6edd3;
+}
+
+html.dark .sobre-card p {
+  color: #bdc7b5;
+}
+
+
+/* NOSSA MISSÃO */
+
+html.dark .sobre-missao {
+  background-color: #22351d;
+}
+
+html.dark .sobre-missao h2 {
+  color: #e6edd3;
+}
+
+html.dark .sobre-missao-conteudo > p:not(.sobre-subtitulo) {
+  color: #bdc7b5;
+}
+
+
+/* CHAMADA FINAL */
+
+html.dark .sobre-cta {
+  background-color: #182414;
+}
+
+html.dark .sobre-cta h2 {
+  color: #e6edd3;
+}
+
+html.dark .sobre-cta-conteudo > p:not(.sobre-subtitulo) {
+  color: #bdc7b5;
+}
+
+html.dark .sobre-cta-botoes .botao-principal {
+  background-color: #517541;
+  border-color: #517541;
+  color: #141f10;
+}
+
+html.dark .sobre-cta-botoes .botao-secundario {
+  background-color: transparent;
+  border-color: #517541;
+  color: #94b555;
+}
+
+html.dark .sobre-cta-botoes .botao-secundario:hover {
+  background-color: #517541;
+  color: #141f10;
 }
 
 

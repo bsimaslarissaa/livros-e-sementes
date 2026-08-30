@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
@@ -12,9 +13,22 @@ import Cadastro from './pages/Cadastro'
 import AdicionarLivro from './pages/AdicionarLivro'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [darkMode])
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
 
       <Routes>
         <Route path="/" element={<Home />} />

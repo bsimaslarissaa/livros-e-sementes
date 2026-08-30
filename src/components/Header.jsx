@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function Header() {
+function Header({ darkMode, setDarkMode }) {
   const [menuAberto, setMenuAberto] = useState(false)
 
   function fecharMenu() {
@@ -17,18 +17,32 @@ function Header() {
         </Link>
       </div>
 
-      <button
-        className="menu-toggle"
-        onClick={() => setMenuAberto(!menuAberto)}
-        aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
-        aria-expanded={menuAberto}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div className="header-acoes">
+
+        <button
+          className="tema-toggle"
+          onClick={() => setDarkMode(!darkMode)}
+          aria-label={darkMode ? 'Ativar modo claro' : 'Ativar modo escuro'}
+          title={darkMode ? 'Modo claro' : 'Modo escuro'}
+        >
+          {darkMode ? '☀' : '☾'}
+        </button>
+
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuAberto(!menuAberto)}
+          aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuAberto}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
 
       <nav className={`menu-expansivel ${menuAberto ? 'menu-aberto' : ''}`}>
+
         <Link to="/" onClick={fecharMenu}>
           Início
         </Link>
@@ -56,6 +70,7 @@ function Header() {
         <Link to="/cadastro" onClick={fecharMenu}>
           Cadastre-se
         </Link>
+
       </nav>
 
     </header>
