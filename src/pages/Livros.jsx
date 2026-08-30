@@ -17,6 +17,9 @@ function Livros() {
         <div>
           <h1>Livros Disponíveis</h1>
           <p>Encontre histórias para trocar e novos conhecimentos para cultivar.</p>
+          <Link to="/addlivro" className="botao-principal">
+              + Postar Livro
+          </Link>
         </div>
       </div>
 
