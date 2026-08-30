@@ -9,7 +9,8 @@ function Header() {
   }
 
   return (
-    <header>
+    <header className="site-header">
+
       <div className="marca">
         <Link to="/" onClick={fecharMenu}>
           <strong>Livros & Sementes</strong>
@@ -17,26 +18,46 @@ function Header() {
       </div>
 
       <button
-        className="menu-mobile"
+        className="menu-toggle"
         onClick={() => setMenuAberto(!menuAberto)}
-        aria-label="Abrir menu"
+        aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'}
+        aria-expanded={menuAberto}
       >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav className={menuAberto ? 'nav-aberto' : ''}>
-        <Link to="/" onClick={fecharMenu}>Início</Link>
-        <Link to="/sobre" onClick={fecharMenu}>Sobre</Link>
-        <Link to="/livros" onClick={fecharMenu}>Livros</Link>
-        <Link to="/sementes" onClick={fecharMenu}>Sementes</Link>
+      <nav className={`menu-expansivel ${menuAberto ? 'menu-aberto' : ''}`}>
+        <Link to="/" onClick={fecharMenu}>
+          Início
+        </Link>
+
+        <Link to="/sobre" onClick={fecharMenu}>
+          Sobre
+        </Link>
+
+        <Link to="/livros" onClick={fecharMenu}>
+          Livros
+        </Link>
+
+        <Link to="/sementes" onClick={fecharMenu}>
+          Sementes
+        </Link>
+
         <Link to="/pontos-troca" onClick={fecharMenu}>
           Pontos de Troca
         </Link>
-        <Link to="/login" onClick={fecharMenu}>Entrar</Link>
-        <Link to="/cadastro" onClick={fecharMenu}>Cadastre-se</Link>
+
+        <Link to="/login" onClick={fecharMenu}>
+          Entrar
+        </Link>
+
+        <Link to="/cadastro" onClick={fecharMenu}>
+          Cadastre-se
+        </Link>
       </nav>
+
     </header>
   )
 }
