@@ -18,17 +18,38 @@ function AdicionarLivro() {
     setNovoLivro({ ...novoLivro, [name]: value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!novoLivro.titulo || !novoLivro.autor || !novoLivro.genero || !novoLivro.doador) {
-      alert('Por favor, preencha todos os campos obrigatórios!')
-      return
-    }
-
-    console.log('Dados do livro cadastrado:', novoLivro)
-    alert('Livro oferecido com sucesso na comunidade! 🎉')
-    navigate('/livros') 
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  if (!novoLivro.titulo || !novoLivro.autor || !novoLivro.genero || !novoLivro.doador) {
+    alert('Por favor, preencha todos os campos obrigatórios!')
+    return
   }
+
+  try {
+    const { data, error } = await supabase
+      .from('livros')
+      .insert([
+        {
+          titulo: novoLivro.titulo,
+          autor: novoLivro.autor,
+          genero: novoLivro.genero,
+          doador: novoLivro.doador,
+          imagem: novoLivro.imagem
+        }
+      ])
+
+    if (error) {
+      throw error
+    }
+    alert('Livro postado com sucesso na comunidade! 🎉')
+    setNovoLivro({ titulo: '', autor: '', genero: '', doador: '', imagem: '' })
+    navigate('/livros')
+  } catch (error) {
+    console.error('Erro detalhado ao salvar:', error)
+    alert('Eita, deu ruim ao salvar o livro no banco de dados. Dê uma olhada no console!')
+  }
+}
+
 
   return (
     <main className="form-container">
