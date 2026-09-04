@@ -2082,3 +2082,40 @@ html.dark .cadastro-login a {
     font-size: 2.3rem;
   }
 }
+
+.card-botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.botao-deletar {
+  padding: 0 14px;
+  background-color: transparent;
+  border: 2px solid #c94c4c;
+  color: #c94c4c;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-deletar:hover {
+  background-color: #c94c4c;
+  color: white;
+}
+
+html.dark .botao-deletar {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+html.dark .botao-deletar:hover {
+  background-color: #ff6b6b;
+  color: #141f10;
+}
