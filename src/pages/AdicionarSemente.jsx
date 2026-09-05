@@ -10,9 +10,11 @@ function AdicionarSemente() {
     tipo: '',
     descricao: '',
     quantidade: '',
-    doador: '',
-    imagem: ''
+    doador: ''
   })
+
+  const [arquivoImagem, setArquivoImagem] = useState(null)
+  const [salvando, setSalvando] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,6 +23,40 @@ function AdicionarSemente() {
       ...novaSemente,
       [name]: value
     })
+  }
+
+  const handleImagem = (e) => {
+    const arquivo = e.target.files[0]
+
+    if (!arquivo) return
+
+    if (!arquivo.type.startsWith('image/')) {
+      alert('Selecione um arquivo de imagem.')
+      return
+    }
+
+    setArquivoImagem(arquivo)
+  }
+
+  const fazerUploadImagem = async () => {
+    if (!arquivoImagem) return null
+
+    const extensao = arquivoImagem.name.split('.').pop()
+    const nomeArquivo = `${Date.now()}-${crypto.randomUUID()}.${extensao}`
+
+    const { error: uploadError } = await supabase.storage
+      .from('sementes')
+      .upload(nomeArquivo, arquivoImagem)
+
+    if (uploadError) {
+      throw uploadError
+    }
+
+    const { data } = supabase.storage
+      .from('sementes')
+      .getPublicUrl(nomeArquivo)
+
+    return data.publicUrl
   }
 
   const handleSubmit = async (e) => {
@@ -37,6 +73,10 @@ function AdicionarSemente() {
     }
 
     try {
+      setSalvando(true)
+
+      const urlImagem = await fazerUploadImagem()
+
       const { error } = await supabase
         .from('sementes')
         .insert([
@@ -46,7 +86,7 @@ function AdicionarSemente() {
             descricao: novaSemente.descricao,
             quantidade: novaSemente.quantidade,
             doador: novaSemente.doador,
-            imagem: novaSemente.imagem
+            imagem: urlImagem
           }
         ])
 
@@ -56,23 +96,13 @@ function AdicionarSemente() {
 
       alert('Semente postada com sucesso na comunidade!')
 
-      setNovaSemente({
-        nome: '',
-        tipo: '',
-        descricao: '',
-        quantidade: '',
-        doador: '',
-        imagem: ''
-      })
-
       navigate('/sementes')
 
     } catch (error) {
       console.error('Erro ao salvar semente:', error)
-
-      alert(
-        'Não foi possível salvar a semente no banco de dados.'
-      )
+      alert('Não foi possível salvar a semente.')
+    } finally {
+      setSalvando(false)
     }
   }
 
@@ -80,13 +110,10 @@ function AdicionarSemente() {
     <main className="form-container">
 
       <div className="form-header">
-
         <h1>Compartilhe uma Semente</h1>
-
         <p>
           Preencha os dados abaixo para disponibilizar sementes ou mudas para a comunidade.
         </p>
-
       </div>
 
       <form
@@ -95,7 +122,6 @@ function AdicionarSemente() {
       >
 
         <div className="form-grupo">
-
           <label htmlFor="nome">
             Nome da Semente ou Muda *
           </label>
@@ -106,14 +132,12 @@ function AdicionarSemente() {
             name="nome"
             value={novaSemente.nome}
             onChange={handleChange}
-            placeholder="Ex: Girassol"
+            placeholder="Ex: Rosa do Deserto"
             required
           />
-
         </div>
 
         <div className="form-grupo">
-
           <label htmlFor="tipo">
             Tipo *
           </label>
@@ -125,41 +149,17 @@ function AdicionarSemente() {
             onChange={handleChange}
             required
           >
-
-            <option value="">
-              Selecione um tipo
-            </option>
-
-            <option value="Flor">
-              Flor
-            </option>
-
-            <option value="Hortaliça">
-              Hortaliça
-            </option>
-
-            <option value="Frutífera">
-              Frutífera
-            </option>
-
-            <option value="Erva">
-              Erva / Tempero
-            </option>
-
-            <option value="Muda">
-              Muda
-            </option>
-
-            <option value="Outros">
-              Outros
-            </option>
-
+            <option value="">Selecione um tipo</option>
+            <option value="Flor">Flor</option>
+            <option value="Hortaliça">Hortaliça</option>
+            <option value="Frutífera">Frutífera</option>
+            <option value="Erva">Erva / Tempero</option>
+            <option value="Muda">Muda</option>
+            <option value="Outros">Outros</option>
           </select>
-
         </div>
 
         <div className="form-grupo">
-
           <label htmlFor="descricao">
             Descrição
           </label>
@@ -169,14 +169,12 @@ function AdicionarSemente() {
             name="descricao"
             value={novaSemente.descricao}
             onChange={handleChange}
-            placeholder="Ex: Sementes de girassol para cultivo doméstico."
+            placeholder="Ex: Muda de rosa do deserto disponível para troca."
             rows="4"
           />
-
         </div>
 
         <div className="form-grupo">
-
           <label htmlFor="quantidade">
             Quantidade *
           </label>
@@ -187,14 +185,12 @@ function AdicionarSemente() {
             name="quantidade"
             value={novaSemente.quantidade}
             onChange={handleChange}
-            placeholder="Ex: 20 sementes"
+            placeholder="Ex: 1 muda"
             required
           />
-
         </div>
 
         <div className="form-grupo">
-
           <label htmlFor="doador">
             Seu Nome (Doador) *
           </label>
@@ -208,28 +204,22 @@ function AdicionarSemente() {
             placeholder="Ex: João"
             required
           />
-
         </div>
 
         <div className="form-grupo">
-
           <label htmlFor="imagem">
-            Link da Imagem
+            Foto da Semente ou Muda
           </label>
 
           <input
-            type="url"
+            type="file"
             id="imagem"
-            name="imagem"
-            value={novaSemente.imagem}
-            onChange={handleChange}
-            placeholder="Cole a URL de uma imagem da internet (opcional)"
+            accept="image/*"
+            onChange={handleImagem}
           />
-
         </div>
 
         <div className="form-botoes">
-
           <Link
             to="/sementes"
             className="botao-secundario"
@@ -240,14 +230,13 @@ function AdicionarSemente() {
           <button
             type="submit"
             className="botao-principal"
+            disabled={salvando}
           >
-            Disponibilizar Semente
+            {salvando ? 'Salvando...' : 'Disponibilizar Semente'}
           </button>
-
         </div>
 
       </form>
-
     </main>
   )
 }
