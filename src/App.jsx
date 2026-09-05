@@ -4,6 +4,7 @@ import './App.css'
 import './pages/CSS/Home.css'
 import './pages/CSS/Sobre.css'
 import './pages/CSS/Livros.css'
+import './pages/CSS/Sementes.css'
 import './pages/CSS/AdicionarLivro.css'
 import './pages/CSS/Login.css'
 
@@ -16,6 +17,7 @@ import PontosTroca from './pages/PontosTroca'
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import AdicionarLivro from './pages/AdicionarLivro'
+import AdicionarSemente from './pages/AdicionarSemente'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -44,6 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/addlivro" element={<AdicionarLivro />} />
+        <Route path="/addsemente" element={<AdicionarSemente />} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,4 +1,4 @@
-.livros-container {
+.sementes-container {
   flex: 1;
   padding: 40px 7%;
   background-color: #f4ecd8;
@@ -6,9 +6,7 @@
   transition: background-color 0.3s ease;
 }
 
-/* Cabeçalho da página */
-
-.livros-header {
+.sementes-header {
   margin-bottom: 40px;
   display: flex;
   align-items: center;
@@ -16,30 +14,30 @@
   gap: 20px;
 }
 
-.livros-header h1 {
+.sementes-header h1 {
   color: #3f5d32;
   font-size: 2.5rem;
   margin-bottom: 8px;
   transition: color 0.3s ease;
 }
 
-.livros-header p {
+.sementes-header p {
   color: #5c5148;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
-/* Grid dos livros */
+/* Grid de sementes */
 
-.livros-grid {
+.sementes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 30px;
 }
 
-/* Card do livro */
+/* Card */
 
-.livro-card {
+.semente-card {
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
@@ -52,16 +50,16 @@
     background-color 0.3s ease;
 }
 
-.livro-card:hover {
+.semente-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
 }
 
-/* Capa */
+/* Imagem */
 
-.card-capa {
+.card-imagem {
   background-color: #eaddca;
-  height: 280px;
+  height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,12 +67,18 @@
   transition: background-color 0.3s ease;
 }
 
-.card-capa img {
+.card-imagem img {
   max-height: 100%;
+  max-width: 100%;
   width: auto;
   object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-imagem span {
+  color: #5c5148;
+  font-size: 0.9rem;
 }
 
 /* Informações */
@@ -87,7 +91,7 @@
   flex: 1;
 }
 
-.card-genero {
+.card-tipo {
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -103,17 +107,34 @@
   transition: color 0.3s ease;
 }
 
-.card-autor,
+.card-descricao,
+.card-quantidade,
 .card-doador {
   font-size: 0.95rem;
   color: #5c5148;
   transition: color 0.3s ease;
 }
 
+/* Mensagens */
+
+.mensagem-sementes {
+  text-align: center;
+  color: #5c5148;
+  font-size: 1.1rem;
+}
+
+/* Área dos botões */
+
+.cardbotoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
 /* Botão Tenho Interesse */
 
 .botao-secundario-pequeno {
-  margin-top: auto;
   padding: 10px;
   border: 2px solid #3f5d32;
   color: #3f5d32;
@@ -132,53 +153,71 @@
   color: white;
 }
 
-/* Responsividade */
+/* Botão excluir */
 
-@media (max-width: 768px) {
-  .livros-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .livros-header .botao-principal {
-    width: 100%;
-    text-align: center;
-  }
+.botao-deletar {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #dc3545;
+  background-color: transparent;
+  color: #dc3545;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
-/* Modo escuro */
+.botao-deletar:hover {
+  background-color: #dc3545;
+  color: white;
+}
 
-html.dark .livros-container {
+/* =========================
+   MODO ESCURO
+   ========================= */
+
+html.dark .sementes-container {
   background-color: #1a2916;
 }
 
-html.dark .livros-header h1 {
+html.dark .sementes-header h1 {
   color: #e6edd3;
 }
 
-html.dark .livros-header p {
+html.dark .sementes-header p {
   color: #bdc7b5;
 }
 
-html.dark .livro-card {
+html.dark .semente-card {
   background-color: #141f10;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-html.dark .card-capa {
+html.dark .card-imagem {
   background-color: #1b2917;
+}
+
+html.dark .card-imagem span {
+  color: #bdc7b5;
 }
 
 html.dark .card-info h3 {
   color: #e6edd3;
 }
 
-html.dark .card-genero {
+html.dark .card-tipo {
   color: #94b555;
 }
 
-html.dark .card-autor,
+html.dark .card-descricao,
+html.dark .card-quantidade,
 html.dark .card-doador {
+  color: #bdc7b5;
+}
+
+html.dark .mensagem-sementes {
   color: #bdc7b5;
 }
 
@@ -190,4 +229,14 @@ html.dark .botao-secundario-pequeno {
 html.dark .botao-secundario-pequeno:hover {
   background-color: #517541;
   color: #1a2916;
+}
+
+html.dark .botao-deletar {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+html.dark .botao-deletar:hover {
+  background-color: #dc3545;
+  color: white;
 }
