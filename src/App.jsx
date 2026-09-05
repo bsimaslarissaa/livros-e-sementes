@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './pages/CSS/App.css'
 import './pages/CSS/Home.css'
 import './pages/CSS/Sobre.css'
+import './pages/CSS/Livros.css'
 
 import Header from './components/Header'
 import Home from './pages/Home'
