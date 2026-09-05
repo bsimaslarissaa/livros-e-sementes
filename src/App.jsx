@@ -5,6 +5,7 @@ import './pages/CSS/Home.css'
 import './pages/CSS/Sobre.css'
 import './pages/CSS/Livros.css'
 import './pages/CSS/AdicionarLivro.css'
+import './pages/CSS/Login.css'
 
 import Header from './components/Header'
 import Home from './pages/Home'
