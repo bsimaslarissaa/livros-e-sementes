@@ -1,8 +1,42 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
 
 function Login() {
-  function handleSubmit(event) {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [carregando, setCarregando] = useState(false)
+
+  async function handleSubmit(event) {
     event.preventDefault()
+    setCarregando(true)
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: senha,
+      })
+
+      if (error) throw error
+
+      alert('Login realizado com sucesso! Que bom ter você de volta.')
+      
+      setEmail('')
+      setSenha('')
+      navigate('/livros')
+
+    } catch (error) {
+      console.error('Erro ao fazer login:', error.message)
+      
+      if (error.message === 'Invalid login credentials') {
+        alert('E-mail ou senha incorretos! Verifique os dados e tente novamente.')
+      } else {
+        alert(`Ops, erro ao entrar: ${error.message}`)
+      }
+    } finally {
+      setCarregando(false)
+    }
   }
 
   return (
@@ -10,7 +44,7 @@ function Login() {
       <section className="login-card">
         <div className="login-header">
           <p className="login-subtitulo">
-            Bem-vindo de volta
+            Boas vindas de volta!
           </p>
 
           <h1>Entrar</h1>
@@ -23,24 +57,26 @@ function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="login-grupo">
             <label htmlFor="email">E-mail</label>
-
             <input
               type="email"
               id="email"
               name="email"
               placeholder="seuemail@exemplo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
 
           <div className="login-grupo">
             <label htmlFor="senha">Senha</label>
-
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Digite sua senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
               required
             />
           </div>
@@ -56,8 +92,8 @@ function Login() {
             </button>
           </div>
 
-          <button type="submit" className="login-botao">
-            Entrar
+          <button type="submit" className="login-botao" disabled={carregando}>
+            {carregando ? 'Entrando...' : 'Entrar'}
           </button>
         </form>
 
