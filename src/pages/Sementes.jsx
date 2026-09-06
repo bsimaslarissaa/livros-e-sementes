@@ -5,6 +5,7 @@ import { supabase } from '../supabaseClient'
 function Sementes() {
   const [sementes, setSementes] = useState([])
   const [carregando, setCarregando] = useState(true)
+  const [usuario, setUsuario] = useState(null)
 
   const buscarSementes = async () => {
     try {
@@ -29,7 +30,16 @@ function Sementes() {
     }
   }
 
+  const buscarUsuario = async () => {
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+
+    setUsuario(user)
+  }
+
   useEffect(() => {
+    buscarUsuario()
     buscarSementes()
   }, [])
 
@@ -46,7 +56,9 @@ function Sementes() {
         .delete()
         .eq('id', id)
 
-      if (error) throw error
+      if (error) {
+        throw error
+      }
 
       alert('Semente removida com sucesso!')
 
@@ -152,17 +164,21 @@ function Sementes() {
                     Tenho Interesse
                   </button>
 
-                  <button
-                    onClick={() =>
-                      deletarSemente(
-                        semente.id,
-                        semente.nome
-                      )
-                    }
-                    className="botao-deletar"
-                  >
-                    X
-                  </button>
+                  {usuario?.id === semente.user_id && (
+
+                    <button
+                      onClick={() =>
+                        deletarSemente(
+                          semente.id,
+                          semente.nome
+                        )
+                      }
+                      className="botao-deletar"
+                    >
+                      X
+                    </button>
+
+                  )}
 
                 </div>
 

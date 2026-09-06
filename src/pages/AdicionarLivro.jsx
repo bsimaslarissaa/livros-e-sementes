@@ -61,6 +61,16 @@ function AdicionarLivro() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+
+    if (!user) {
+      alert('Você precisa estar conectado para publicar um livro.')
+      navigate('/login')
+      return
+    }
+
     if (
       !novoLivro.titulo ||
       !novoLivro.autor ||
@@ -84,7 +94,8 @@ function AdicionarLivro() {
             autor: novoLivro.autor,
             genero: novoLivro.genero,
             doador: novoLivro.doador,
-            imagem: urlImagem
+            imagem: urlImagem,
+            user_id: user.id
           }
         ])
 

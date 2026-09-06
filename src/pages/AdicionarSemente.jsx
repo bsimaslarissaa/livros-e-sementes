@@ -62,6 +62,16 @@ function AdicionarSemente() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+
+    if (!user) {
+      alert('Você precisa estar conectado para publicar uma semente.')
+      navigate('/login')
+      return
+    }
+
     if (
       !novaSemente.nome ||
       !novaSemente.tipo ||
@@ -86,7 +96,8 @@ function AdicionarSemente() {
             descricao: novaSemente.descricao,
             quantidade: novaSemente.quantidade,
             doador: novaSemente.doador,
-            imagem: urlImagem
+            imagem: urlImagem,
+            user_id: user.id
           }
         ])
 

@@ -262,6 +262,9 @@
   height: auto;
   display: block;
   object-fit: contain;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
 }
 
 .hero-imagem p {
@@ -447,4 +450,8 @@ html.dark .botao-secundario:hover {
 
 html.dark .hero-ilustracao {
   color: #bda28a;
+}
+
+html.dark .hero-imagem img {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
