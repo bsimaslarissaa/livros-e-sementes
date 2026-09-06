@@ -1,10 +1,50 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { supabase } from '../supabaseClient'
 
 function Cadastro() {
-  function handleSubmit(event) {
-    event.preventDefault()
-  }
+ const navigate = useNavigate()
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+  const [confirmarSenha, setConfirmarSenha] = useState('')
+  const [carregando, setCarregando] = useState(false)
 
+  async function handleSubmit(event) {
+    event.preventDefault()
+    if (senha !== confirmarSenha) {
+      alert('As senhas não coincidem! Por favor, verifique e tente novamente.')
+      return
+    }
+    setCarregando(true)
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: senha,
+        options: {
+          data: {
+            display_name: nome
+          }
+        }
+      })
+
+      if (error) throw error
+
+      alert('Sua conta foi criada com sucesso! Boas-vindas à comunidade!')
+      
+      setNome('')
+      setEmail('')
+      setSenha('')
+      setConfirmarSenha('')
+      navigate('/login')
+
+    } catch (error) {
+      console.error('Erro ao cadastrar:', error.message)
+      alert(`Ops, erro ao criar conta: ${error.message}`)
+    } finally {
+      setCarregando(false)
+    }
+  }
   return (
     <main className="cadastro-container">
 
@@ -52,6 +92,8 @@ function Cadastro() {
               id="nome"
               name="nome"
               placeholder="Digite seu nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               required
             />
           </div>
@@ -64,6 +106,8 @@ function Cadastro() {
               id="email"
               name="email"
               placeholder="seuemail@exemplo.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -76,6 +120,8 @@ function Cadastro() {
               id="senha"
               name="senha"
               placeholder="Crie uma senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
               required
             />
           </div>
@@ -90,6 +136,8 @@ function Cadastro() {
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Digite a senha novamente"
+              value={confirmarSenha}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
               required
             />
           </div>
@@ -103,9 +151,9 @@ function Cadastro() {
             </span>
           </label>
 
-          <button type="submit" className="cadastro-botao">
-            Criar conta
-          </button>
+           <button type="submit" className="cadastro-botao" disabled={carregando}>
+              {carregando ? 'Criando conta...' : 'Criar conta'}
+           </button>
 
         </form>
 
