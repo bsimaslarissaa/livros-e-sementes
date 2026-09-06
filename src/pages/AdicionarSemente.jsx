@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
-function AdicionarLivro() {
+function AdicionarSemente() {
   const navigate = useNavigate()
 
-  const [novoLivro, setNovoLivro] = useState({
-    titulo: '',
-    autor: '',
-    genero: '',
+  const [novaSemente, setNovaSemente] = useState({
+    nome: '',
+    tipo: '',
+    descricao: '',
+    quantidade: '',
     doador: ''
   })
 
@@ -18,8 +19,8 @@ function AdicionarLivro() {
   const handleChange = (e) => {
     const { name, value } = e.target
 
-    setNovoLivro({
-      ...novoLivro,
+    setNovaSemente({
+      ...novaSemente,
       [name]: value
     })
   }
@@ -44,7 +45,7 @@ function AdicionarLivro() {
     const nomeArquivo = `${Date.now()}-${crypto.randomUUID()}.${extensao}`
 
     const { error: uploadError } = await supabase.storage
-      .from('livros')
+      .from('sementes')
       .upload(nomeArquivo, arquivoImagem)
 
     if (uploadError) {
@@ -52,7 +53,7 @@ function AdicionarLivro() {
     }
 
     const { data } = supabase.storage
-      .from('livros')
+      .from('sementes')
       .getPublicUrl(nomeArquivo)
 
     return data.publicUrl
@@ -62,10 +63,10 @@ function AdicionarLivro() {
     e.preventDefault()
 
     if (
-      !novoLivro.titulo ||
-      !novoLivro.autor ||
-      !novoLivro.genero ||
-      !novoLivro.doador
+      !novaSemente.nome ||
+      !novaSemente.tipo ||
+      !novaSemente.quantidade ||
+      !novaSemente.doador
     ) {
       alert('Por favor, preencha todos os campos obrigatórios!')
       return
@@ -77,13 +78,14 @@ function AdicionarLivro() {
       const urlImagem = await fazerUploadImagem()
 
       const { error } = await supabase
-        .from('livros')
+        .from('sementes')
         .insert([
           {
-            titulo: novoLivro.titulo,
-            autor: novoLivro.autor,
-            genero: novoLivro.genero,
-            doador: novoLivro.doador,
+            nome: novaSemente.nome,
+            tipo: novaSemente.tipo,
+            descricao: novaSemente.descricao,
+            quantidade: novaSemente.quantidade,
+            doador: novaSemente.doador,
             imagem: urlImagem
           }
         ])
@@ -92,13 +94,13 @@ function AdicionarLivro() {
         throw error
       }
 
-      alert('Livro postado com sucesso na comunidade!')
+      alert('Semente postada com sucesso na comunidade!')
 
-      navigate('/livros')
+      navigate('/sementes')
 
     } catch (error) {
-      console.error('Erro ao salvar livro:', error)
-      alert('Não foi possível salvar o livro.')
+      console.error('Erro ao salvar semente:', error)
+      alert('Não foi possível salvar a semente.')
     } finally {
       setSalvando(false)
     }
@@ -108,9 +110,9 @@ function AdicionarLivro() {
     <main className="form-container">
 
       <div className="form-header">
-        <h1>Compartilhe um Livro</h1>
+        <h1>Compartilhe uma Semente</h1>
         <p>
-          Preencha os dados abaixo para disponibilizar sua história para a rede.
+          Preencha os dados abaixo para disponibilizar sementes ou mudas para a comunidade.
         </p>
       </div>
 
@@ -120,56 +122,72 @@ function AdicionarLivro() {
       >
 
         <div className="form-grupo">
-          <label htmlFor="titulo">
-            Título do Livro *
+          <label htmlFor="nome">
+            Nome da Semente ou Muda *
           </label>
 
           <input
             type="text"
-            id="titulo"
-            name="titulo"
-            value={novoLivro.titulo}
+            id="nome"
+            name="nome"
+            value={novaSemente.nome}
             onChange={handleChange}
-            placeholder="Ex: O Pequeno Príncipe"
+            placeholder="Ex: Rosa do Deserto"
             required
           />
         </div>
 
         <div className="form-grupo">
-          <label htmlFor="autor">
-            Autor *
-          </label>
-
-          <input
-            type="text"
-            id="autor"
-            name="autor"
-            value={novoLivro.autor}
-            onChange={handleChange}
-            placeholder="Ex: Antoine de Saint-Exupéry"
-            required
-          />
-        </div>
-
-        <div className="form-grupo">
-          <label htmlFor="genero">
-            Gênero *
+          <label htmlFor="tipo">
+            Tipo *
           </label>
 
           <select
-            id="genero"
-            name="genero"
-            value={novoLivro.genero}
+            id="tipo"
+            name="tipo"
+            value={novaSemente.tipo}
             onChange={handleChange}
             required
           >
-            <option value="">Selecione um gênero</option>
-            <option value="Clássico">Clássico</option>
-            <option value="Fábula">Fábula</option>
-            <option value="Fantasia">Fantasia</option>
-            <option value="Cultivo">Cultivo e Plantas</option>
-            <option value="Ficção">Ficção / Outros</option>
+            <option value="">Selecione um tipo</option>
+            <option value="Flor">Flor</option>
+            <option value="Hortaliça">Hortaliça</option>
+            <option value="Frutífera">Frutífera</option>
+            <option value="Erva">Erva / Tempero</option>
+            <option value="Muda">Muda</option>
+            <option value="Outros">Outros</option>
           </select>
+        </div>
+
+        <div className="form-grupo">
+          <label htmlFor="descricao">
+            Descrição
+          </label>
+
+          <textarea
+            id="descricao"
+            name="descricao"
+            value={novaSemente.descricao}
+            onChange={handleChange}
+            placeholder="Ex: Muda de rosa do deserto disponível para troca."
+            rows="4"
+          />
+        </div>
+
+        <div className="form-grupo">
+          <label htmlFor="quantidade">
+            Quantidade *
+          </label>
+
+          <input
+            type="text"
+            id="quantidade"
+            name="quantidade"
+            value={novaSemente.quantidade}
+            onChange={handleChange}
+            placeholder="Ex: 1 muda"
+            required
+          />
         </div>
 
         <div className="form-grupo">
@@ -181,16 +199,16 @@ function AdicionarLivro() {
             type="text"
             id="doador"
             name="doador"
-            value={novoLivro.doador}
+            value={novaSemente.doador}
             onChange={handleChange}
-            placeholder="Ex: Júlia"
+            placeholder="Ex: João"
             required
           />
         </div>
 
         <div className="form-grupo">
           <label htmlFor="imagem">
-            Foto da Capa do Livro
+            Foto da Semente ou Muda
           </label>
 
           <input
@@ -202,9 +220,8 @@ function AdicionarLivro() {
         </div>
 
         <div className="form-botoes">
-
           <Link
-            to="/livros"
+            to="/sementes"
             className="botao-secundario"
           >
             Cancelar
@@ -215,15 +232,13 @@ function AdicionarLivro() {
             className="botao-principal"
             disabled={salvando}
           >
-            {salvando ? 'Salvando...' : 'Disponibilizar Livro'}
+            {salvando ? 'Salvando...' : 'Disponibilizar Semente'}
           </button>
-
         </div>
 
       </form>
-
     </main>
   )
 }
 
-export default AdicionarLivro
+export default AdicionarSemente

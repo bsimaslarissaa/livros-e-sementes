@@ -48,7 +48,8 @@
 }
 
 .form-grupo input,
-.form-grupo select {
+.form-grupo select,
+.form-grupo textarea {
   padding: 12px 14px;
   border: 2px solid #eaddca;
   border-radius: 8px;
@@ -57,10 +58,17 @@
   outline: none;
   background-color: #fdfbf7;
   transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.form-grupo textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
 .form-grupo input:focus,
-.form-grupo select:focus {
+.form-grupo select:focus,
+.form-grupo textarea:focus {
   border-color: #3f5d32;
 }
 
@@ -87,9 +95,11 @@
   .livro-form {
     padding: 20px;
   }
+
   .form-botoes {
     flex-direction: column-reverse;
   }
+
   .form-botoes * {
     width: 100%;
     text-align: center;
@@ -120,13 +130,15 @@ html.dark .form-grupo label {
 }
 
 html.dark .form-grupo input,
-html.dark .form-grupo select {
+html.dark .form-grupo select,
+html.dark .form-grupo textarea {
   background-color: #1b2917;
   border-color: #2d4227;
   color: #e6edd3;
 }
 
 html.dark .form-grupo input:focus,
-html.dark .form-grupo select:focus {
+html.dark .form-grupo select:focus,
+html.dark .form-grupo textarea:focus {
   border-color: #94b555;
 }
