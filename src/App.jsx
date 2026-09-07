@@ -19,6 +19,7 @@ import Login from './pages/Login'
 import Cadastro from './pages/Cadastro'
 import AdicionarLivro from './pages/AdicionarLivro'
 import AdicionarSemente from './pages/AdicionarSemente'
+import RedefinirSenha from './pages/RedefinirSenha'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -46,6 +47,7 @@ function App() {
         <Route path="/pontos-troca" element={<PontosTroca />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/redefinir-senha"element={<RedefinirSenha />} />
         <Route path="/addlivro" element={<AdicionarLivro />} />
         <Route path="/addsemente" element={<AdicionarSemente />} />
       </Routes>
