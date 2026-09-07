@@ -7,6 +7,7 @@ import './pages/CSS/Sementes.css'
 import './pages/CSS/AdicionarLivro.css'
 import './pages/CSS/Login.css'
 import './pages/CSS/Cadastro.css'
+import './pages/CSS/AdicionarSemente.css'
 
 import Header from './components/Header'
 import Home from './pages/Home'

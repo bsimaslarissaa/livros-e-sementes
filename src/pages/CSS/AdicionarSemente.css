@@ -1,0 +1,206 @@
+.adicionar-semente-container {
+  flex: 1;
+  padding: 40px 7%;
+  background-color: #f4ecd8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+}
+
+.semente-form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.semente-form-header h1 {
+  color: #3f5d32;
+  font-size: 2.3rem;
+  margin-bottom: 8px;
+}
+
+.semente-form-header p {
+  color: #5c5148;
+}
+
+.semente-form {
+  background-color: white;
+  width: 100%;
+  max-width: 550px;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(63, 93, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.semente-form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.semente-form-grupo label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #3f5d32;
+}
+
+.semente-form-grupo input,
+.semente-form-grupo select,
+.semente-form-grupo textarea {
+  padding: 12px 14px;
+  border: 2px solid #eaddca;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #5c5148;
+  outline: none;
+  background-color: #fdfbf7;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.semente-form-grupo textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.semente-form-grupo input:focus,
+.semente-form-grupo select:focus,
+.semente-form-grupo textarea:focus {
+  border-color: #3f5d32;
+}
+
+/* Câmera e galeria */
+
+.opcoes-imagem-semente {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.botao-imagem-semente {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 2px solid #3f5d32;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #3f5d32;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.botao-imagem-semente:hover {
+  background-color: #3f5d32;
+  color: #ffffff;
+}
+
+.arquivo-selecionado-semente {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #5c5148;
+  word-break: break-word;
+}
+
+/* Botões do formulário */
+
+.semente-form-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.semente-form-botoes .botao-secundario,
+.semente-form-botoes .botao-principal {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+}
+
+.semente-form-botoes .botao-secundario {
+  border: 2px solid #3f5d32;
+}
+
+/* Responsivo */
+
+@media (max-width: 480px) {
+  .semente-form {
+    padding: 20px;
+  }
+
+  .semente-form-botoes {
+    flex-direction: column-reverse;
+  }
+
+  .semente-form-botoes > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .opcoes-imagem-semente {
+    flex-direction: column;
+  }
+
+  .botao-imagem-semente {
+    width: 100%;
+  }
+}
+
+/* Modo escuro */
+
+html.dark .adicionar-semente-container {
+  background-color: #1a2916;
+}
+
+html.dark .semente-form-header h1 {
+  color: #e6edd3;
+}
+
+html.dark .semente-form-header p {
+  color: #bdc7b5;
+}
+
+html.dark .semente-form {
+  background-color: #141f10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .semente-form-grupo label {
+  color: #94b555;
+}
+
+html.dark .semente-form-grupo input,
+html.dark .semente-form-grupo select,
+html.dark .semente-form-grupo textarea {
+  background-color: #1b2917;
+  border-color: #2d4227;
+  color: #e6edd3;
+}
+
+html.dark .semente-form-grupo input:focus,
+html.dark .semente-form-grupo select:focus,
+html.dark .semente-form-grupo textarea:focus {
+  border-color: #94b555;
+}
+
+html.dark .botao-imagem-semente {
+  border-color: #94b555;
+  color: #e6edd3;
+}
+
+html.dark .botao-imagem-semente:hover {
+  background-color: #94b555;
+  color: #141f10;
+}
+
+html.dark .arquivo-selecionado-semente {
+  color: #bdc7b5;
+}
