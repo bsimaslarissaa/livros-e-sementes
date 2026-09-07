@@ -200,16 +200,40 @@ function AdicionarLivro() {
         </div>
 
         <div className="form-grupo">
-          <label htmlFor="imagem">
+          <label>
             Foto da Capa do Livro
           </label>
 
-          <input
-            type="file"
-            id="imagem"
-            accept="image/*"
-            onChange={handleImagem}
-          />
+          <div className="opcoes-imagem-livro">
+
+            <label className="botao-imagem-livro">
+              Tirar foto
+              <input
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handleImagem}
+                hidden
+              />
+            </label>
+
+            <label className="botao-imagem-livro">
+              Escolher da galeria
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImagem}
+                hidden
+              />
+            </label>
+
+          </div>
+
+          {arquivoImagem && (
+            <p className="arquivo-selecionado-livro">
+              Imagem selecionada: {arquivoImagem.name}
+            </p>
+          )}
         </div>
 
         <div className="form-botoes">
