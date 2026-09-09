@@ -21,6 +21,7 @@ import Cadastro from './pages/Cadastro'
 import AdicionarLivro from './pages/AdicionarLivro'
 import AdicionarSemente from './pages/AdicionarSemente'
 import Pedidos from './pages/Mural'
+import AdicionarPedido from './pages/AdicionarPedido'
 import RedefinirSenha from './pages/RedefinirSenha'
 
 function App() {
@@ -42,7 +43,6 @@ function App() {
       />
 
       <Routes>
-        <Route path="/pedidos" element={<Pedidos/>}/>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/livros" element={<Livros />} />
@@ -53,6 +53,8 @@ function App() {
         <Route path="/redefinir-senha"element={<RedefinirSenha />} />
         <Route path="/addlivro" element={<AdicionarLivro />} />
         <Route path="/addsemente" element={<AdicionarSemente />} />
+        <Route path="/pedidos" element={<Pedidos/>}/>
+        <Route path="/addpedido" element={<AdicionarPedido/>}/>
       </Routes>
     </BrowserRouter>
   )

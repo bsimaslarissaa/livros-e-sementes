@@ -130,6 +130,10 @@ function Header({ darkMode, setDarkMode }) {
           Sementes
         </Link>
 
+        <Link to="/pedidos" onClick={fecharMenu}>
+          Mural de Pedidos
+        </Link>
+
         <Link to="/pontos-troca" onClick={fecharMenu}>
           Pontos de Troca
         </Link>
