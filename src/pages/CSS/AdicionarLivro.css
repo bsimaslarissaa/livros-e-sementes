@@ -142,3 +142,65 @@ html.dark .form-grupo select:focus,
 html.dark .form-grupo textarea:focus {
   border-color: #94b555;
 }
+
+/* Câmera e galeria */
+
+.opcoes-imagem-livro {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.botao-imagem-livro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 2px solid #3f5d32;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #3f5d32;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.botao-imagem-livro:hover {
+  background-color: #3f5d32;
+  color: #ffffff;
+}
+
+.arquivo-selecionado-livro {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #5c5148;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .opcoes-imagem-livro {
+    flex-direction: column;
+  }
+
+  .botao-imagem-livro {
+    width: 100%;
+  }
+}
+
+/* Modo escuro */
+
+html.dark .botao-imagem-livro {
+  border-color: #94b555;
+  color: #e6edd3;
+}
+
+html.dark .botao-imagem-livro:hover {
+  background-color: #94b555;
+  color: #141f10;
+}
+
+html.dark .arquivo-selecionado-livro {
+  color: #bdc7b5;
+}

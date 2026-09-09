@@ -4,9 +4,11 @@ import { supabase } from '../supabaseClient'
 
 function Login() {
   const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [carregando, setCarregando] = useState(false)
+  const [recuperandoSenha, setRecuperandoSenha] = useState(false)
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -21,14 +23,14 @@ function Login() {
       if (error) throw error
 
       alert('Login realizado com sucesso! Que bom ter você de volta.')
-      
+
       setEmail('')
       setSenha('')
       navigate('/livros')
 
     } catch (error) {
       console.error('Erro ao fazer login:', error.message)
-      
+
       if (error.message === 'Invalid login credentials') {
         alert('E-mail ou senha incorretos! Verifique os dados e tente novamente.')
       } else {
@@ -36,6 +38,36 @@ function Login() {
       }
     } finally {
       setCarregando(false)
+    }
+  }
+
+  async function handleEsqueciSenha() {
+    if (!email) {
+      alert('Digite seu e-mail no campo acima para recuperar sua senha.')
+      return
+    }
+
+    try {
+      setRecuperandoSenha(true)
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/redefinir-senha`,
+      })
+
+      if (error) {
+        throw error
+      }
+
+      alert(
+        'Enviamos um link de recuperação para o seu e-mail. Verifique também a caixa de spam.'
+      )
+
+    } catch (error) {
+      console.error('Erro ao recuperar senha:', error.message)
+
+      alert(`Não foi possível enviar o e-mail de recuperação: ${error.message}`)
+    } finally {
+      setRecuperandoSenha(false)
     }
   }
 
@@ -57,6 +89,7 @@ function Login() {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="login-grupo">
             <label htmlFor="email">E-mail</label>
+
             <input
               type="email"
               id="email"
@@ -70,6 +103,7 @@ function Login() {
 
           <div className="login-grupo">
             <label htmlFor="senha">Senha</label>
+
             <input
               type="password"
               id="senha"
@@ -87,12 +121,23 @@ function Login() {
               <span>Lembrar de mim</span>
             </label>
 
-            <button type="button" className="login-esqueci">
-              Esqueci minha senha
+            <button
+              type="button"
+              className="login-esqueci"
+              onClick={handleEsqueciSenha}
+              disabled={recuperandoSenha}
+            >
+              {recuperandoSenha
+                ? 'Enviando...'
+                : 'Esqueci minha senha'}
             </button>
           </div>
 
-          <button type="submit" className="login-botao" disabled={carregando}>
+          <button
+            type="submit"
+            className="login-botao"
+            disabled={carregando}
+          >
             {carregando ? 'Entrando...' : 'Entrar'}
           </button>
         </form>

@@ -8,6 +8,7 @@ import './pages/CSS/AdicionarLivro.css'
 import './pages/CSS/Login.css'
 import './pages/CSS/Cadastro.css'
 import './pages/CSS/Mural.css'
+import './pages/CSS/AdicionarSemente.css'
 
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -20,6 +21,7 @@ import Cadastro from './pages/Cadastro'
 import AdicionarLivro from './pages/AdicionarLivro'
 import AdicionarSemente from './pages/AdicionarSemente'
 import Pedidos from './pages/Mural'
+import RedefinirSenha from './pages/RedefinirSenha'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -48,6 +50,7 @@ function App() {
         <Route path="/pontos-troca" element={<PontosTroca />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/redefinir-senha"element={<RedefinirSenha />} />
         <Route path="/addlivro" element={<AdicionarLivro />} />
         <Route path="/addsemente" element={<AdicionarSemente />} />
       </Routes>

@@ -1,11 +1,50 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
 
 function Header({ darkMode, setDarkMode }) {
   const [menuAberto, setMenuAberto] = useState(false)
+  const [usuario, setUsuario] = useState(null)
+  const navigate = useNavigate()
 
   function fecharMenu() {
     setMenuAberto(false)
+  }
+
+  useEffect(() => {
+    async function buscarUsuario() {
+      const {
+        data: { user }
+      } = await supabase.auth.getUser()
+
+      setUsuario(user)
+    }
+
+    buscarUsuario()
+
+    const {
+      data: { subscription }
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUsuario(session?.user ?? null)
+    })
+
+    return () => {
+      subscription.unsubscribe()
+    }
+  }, [])
+
+  async function sair() {
+    const { error } = await supabase.auth.signOut()
+
+    if (error) {
+      console.error('Erro ao sair:', error)
+      alert('Não foi possível sair da conta.')
+      return
+    }
+
+    setUsuario(null)
+    fecharMenu()
+    navigate('/')
   }
 
   return (
@@ -95,13 +134,37 @@ function Header({ darkMode, setDarkMode }) {
           Pontos de Troca
         </Link>
 
-        <Link to="/login" onClick={fecharMenu}>
-          Entrar
-        </Link>
+        {usuario ? (
+          <>
+            <div className="usuario-logado">
+              <span className="usuario-nome">
+                Olá, {usuario.user_metadata?.display_name || 'Usuário'}
+              </span>
 
-        <Link to="/cadastro" onClick={fecharMenu}>
-          Cadastre-se
-        </Link>
+              <span className="usuario-email">
+                {usuario.email}
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="botao-sair"
+              onClick={sair}
+            >
+              Sair
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" onClick={fecharMenu}>
+              Entrar
+            </Link>
+
+            <Link to="/cadastro" onClick={fecharMenu}>
+              Cadastre-se
+            </Link>
+          </>
+        )}
 
       </nav>
 

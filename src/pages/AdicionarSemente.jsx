@@ -62,6 +62,16 @@ function AdicionarSemente() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const {
+      data: { user }
+    } = await supabase.auth.getUser()
+
+    if (!user) {
+      alert('Você precisa estar conectado para publicar uma semente.')
+      navigate('/login')
+      return
+    }
+
     if (
       !novaSemente.nome ||
       !novaSemente.tipo ||
@@ -86,7 +96,8 @@ function AdicionarSemente() {
             descricao: novaSemente.descricao,
             quantidade: novaSemente.quantidade,
             doador: novaSemente.doador,
-            imagem: urlImagem
+            imagem: urlImagem,
+            user_id: user.id
           }
         ])
 
@@ -107,9 +118,9 @@ function AdicionarSemente() {
   }
 
   return (
-    <main className="form-container">
+    <main className="adicionar-semente-container">
 
-      <div className="form-header">
+      <div className="semente-form-header">
         <h1>Compartilhe uma Semente</h1>
         <p>
           Preencha os dados abaixo para disponibilizar sementes ou mudas para a comunidade.
@@ -118,10 +129,10 @@ function AdicionarSemente() {
 
       <form
         onSubmit={handleSubmit}
-        className="livro-form"
+        className="semente-form"
       >
 
-        <div className="form-grupo">
+        <div className="semente-form-grupo">
           <label htmlFor="nome">
             Nome da Semente ou Muda *
           </label>
@@ -137,7 +148,7 @@ function AdicionarSemente() {
           />
         </div>
 
-        <div className="form-grupo">
+        <div className="semente-form-grupo">
           <label htmlFor="tipo">
             Tipo *
           </label>
@@ -159,7 +170,7 @@ function AdicionarSemente() {
           </select>
         </div>
 
-        <div className="form-grupo">
+        <div className="semente-form-grupo">
           <label htmlFor="descricao">
             Descrição
           </label>
@@ -174,7 +185,7 @@ function AdicionarSemente() {
           />
         </div>
 
-        <div className="form-grupo">
+        <div className="semente-form-grupo">
           <label htmlFor="quantidade">
             Quantidade *
           </label>
@@ -190,7 +201,7 @@ function AdicionarSemente() {
           />
         </div>
 
-        <div className="form-grupo">
+        <div className="semente-form-grupo">
           <label htmlFor="doador">
             Seu Nome (Doador) *
           </label>
@@ -206,20 +217,44 @@ function AdicionarSemente() {
           />
         </div>
 
-        <div className="form-grupo">
-          <label htmlFor="imagem">
+        <div className="semente-form-grupo">
+          <label>
             Foto da Semente ou Muda
           </label>
 
-          <input
-            type="file"
-            id="imagem"
-            accept="image/*"
-            onChange={handleImagem}
-          />
+          <div className="opcoes-imagem-semente">
+
+            <label className="botao-imagem-semente">
+              Tirar foto
+              <input
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handleImagem}
+                hidden
+              />
+            </label>
+
+            <label className="botao-imagem-semente">
+              Escolher da galeria
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImagem}
+                hidden
+              />
+            </label>
+
+          </div>
+
+          {arquivoImagem && (
+            <p className="arquivo-selecionado-semente">
+              Imagem selecionada: {arquivoImagem.name}
+            </p>
+          )}
         </div>
 
-        <div className="form-botoes">
+        <div className="semente-form-botoes">
           <Link
             to="/sementes"
             className="botao-secundario"
