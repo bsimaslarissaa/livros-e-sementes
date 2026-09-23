@@ -8,6 +8,11 @@
   background-color: #f4ecd8;
 }
 
+
+/* =========================
+   LADO ESQUERDO - LOGIN
+   ========================= */
+
 .login-card {
   display: flex;
   flex-direction: column;
@@ -52,6 +57,11 @@
 
   max-width: 500px;
 }
+
+
+/* =========================
+   FORMULÁRIO
+   ========================= */
 
 .login-form {
   display: flex;
@@ -99,6 +109,11 @@
   border-color: #3f5d32;
 }
 
+
+/* =========================
+   OPÇÕES DO LOGIN
+   ========================= */
+
 .login-opcoes {
   display: flex;
   align-items: center;
@@ -140,6 +155,11 @@
   text-decoration: underline;
 }
 
+
+/* =========================
+   BOTÃO ENTRAR
+   ========================= */
+
 .login-botao {
   width: 100%;
 
@@ -166,6 +186,11 @@
   transform: translateY(-1px);
 }
 
+
+/* =========================
+   LINK PARA CADASTRO
+   ========================= */
+
 .login-cadastro {
   margin-top: 28px;
 
@@ -188,7 +213,9 @@
 }
 
 
-/* LADO DIREITO */
+/* =========================
+   LADO DIREITO
+   ========================= */
 
 .login-mensagem {
   min-height: 100%;
@@ -235,75 +262,114 @@
 }
 
 
-/*  MODO ESCURO - LOGIN */
+/* =========================
+   MODO ESCURO - LOGIN
+   ========================= */
 
 html.dark .login-container {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
 
+
+/* CABEÇALHO */
+
 html.dark .login-header h1 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .login-subtitulo {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .login-header > p:not(.login-subtitulo) {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* CAMPOS */
+
 html.dark .login-grupo label {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .login-grupo input {
-  background-color: #141f10;
-  border-color: #2d4227;
-  color: #e6edd3;
+  background-color: #31492b;
+  border-color: #517541;
+  color: #f0f3e6;
 }
 
 html.dark .login-grupo input::placeholder {
-  color: #7f8c78;
+  color: #aebaa7;
 }
 
 html.dark .login-grupo input:focus {
-  border-color: #94b555;
+  border-color: #a8c766;
 }
 
+
+/* OPÇÕES */
+
 html.dark .login-lembrar {
-  color: #bdc7b5;
+  color: #d3dccb;
+}
+
+html.dark .login-lembrar input {
+  accent-color: #94b555;
 }
 
 html.dark .login-esqueci {
-  color: #94b555;
+  color: #a8c766;
 }
 
+
+/* BOTÃO ENTRAR */
+
 html.dark .login-botao {
-  background-color: #517541;
-  color: #141f10;
+  background-color: #94b555;
+  color: #162312;
 }
 
 html.dark .login-botao:hover {
-  background-color: #608a4e;
+  background-color: #a8c766;
 }
 
+
+/* CADASTRO */
+
 html.dark .login-cadastro {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
 html.dark .login-cadastro a {
-  color: #94b555;
+  color: #a8c766;
 }
+
+
+/* LADO DIREITO */
 
 html.dark .login-mensagem {
-  background-color: #141f10;
+  background-color: #1d3019;
+}
+
+html.dark .login-mensagem-subtitulo {
+  color: #a8c766;
+}
+
+html.dark .login-mensagem h2 {
+  color: #f0f3e6;
+}
+
+html.dark .login-mensagem > div > p:not(.login-mensagem-subtitulo) {
+  color: #d3dccb;
 }
 
 
-/* RESPONSIVIDADE - LOGIN */
+/* =========================
+   RESPONSIVIDADE - LOGIN
+   ========================= */
 
 @media (max-width: 900px) {
+
   .login-container {
     grid-template-columns: 1fr;
   }
@@ -325,9 +391,12 @@ html.dark .login-mensagem {
   .login-mensagem h2 {
     font-size: 2.4rem;
   }
+
 }
 
+
 @media (max-width: 600px) {
+
   .login-card {
     padding: 45px 24px;
   }
@@ -350,4 +419,5 @@ html.dark .login-mensagem {
   .login-mensagem h2 {
     font-size: 2rem;
   }
+
 }

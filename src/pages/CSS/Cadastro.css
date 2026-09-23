@@ -225,69 +225,107 @@
 }
 
 
-/* MODO ESCURO - CADASTRO */
+/* =========================
+   MODO ESCURO - CADASTRO
+   ========================= */
 
 html.dark .cadastro-container {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
+
+
+/* LADO ESQUERDO */
 
 html.dark .cadastro-mensagem {
-  background-color: #141f10;
+  background-color: #1d3019;
 }
 
+html.dark .cadastro-mensagem-subtitulo {
+  color: #a8c766;
+}
+
+html.dark .cadastro-mensagem h2 {
+  color: #f0f3e6;
+}
+
+html.dark .cadastro-mensagem > div > p:not(.cadastro-mensagem-subtitulo) {
+  color: #d3dccb;
+}
+
+
+/* LADO DIREITO */
+
 html.dark .cadastro-subtitulo {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .cadastro-header h1 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .cadastro-header > p:not(.cadastro-subtitulo) {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* CAMPOS */
+
 html.dark .cadastro-grupo label {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .cadastro-grupo input {
-  background-color: #141f10;
-  border-color: #2d4227;
-  color: #e6edd3;
+  background-color: #31492b;
+  border-color: #517541;
+  color: #f0f3e6;
 }
 
 html.dark .cadastro-grupo input::placeholder {
-  color: #7f8c78;
+  color: #aebaa7;
 }
 
 html.dark .cadastro-grupo input:focus {
-  border-color: #94b555;
+  border-color: #a8c766;
 }
+
+
+/* TERMOS */
 
 html.dark .cadastro-termos {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+html.dark .cadastro-termos input {
+  accent-color: #94b555;
+}
+
+
+/* BOTÃO */
+
 html.dark .cadastro-botao {
-  background-color: #517541;
-  color: #141f10;
+  background-color: #94b555;
+  color: #162312;
 }
 
 html.dark .cadastro-botao:hover {
-  background-color: #608a4e;
+  background-color: #a8c766;
 }
 
+
+/* LINK LOGIN */
+
 html.dark .cadastro-login {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
 html.dark .cadastro-login a {
-  color: #94b555;
+  color: #a8c766;
 }
 
 
-/* RESPONSIVIDADE - CADASTRO */
+/* =========================
+   RESPONSIVIDADE - CADASTRO
+   ========================= */
 
 @media (max-width: 900px) {
 
@@ -312,6 +350,7 @@ html.dark .cadastro-login a {
 
     padding: 60px 35px;
   }
+
 }
 
 
@@ -332,4 +371,5 @@ html.dark .cadastro-login a {
   .cadastro-header h1 {
     font-size: 2.3rem;
   }
+
 }

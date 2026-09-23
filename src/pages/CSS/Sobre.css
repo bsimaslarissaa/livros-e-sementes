@@ -3,6 +3,11 @@
   background-color: #fffdf7;
 }
 
+
+/* =========================
+   HERO
+   ========================= */
+
 .sobre-hero {
   display: grid;
   grid-template-columns: 1.5fr 0.9fr;
@@ -68,7 +73,9 @@
 }
 
 
-/* CARDS */
+/* =========================
+   CARDS
+   ========================= */
 
 .sobre-blocos {
   display: grid;
@@ -114,7 +121,9 @@
 }
 
 
-/* NOSSA MISSÃO */
+/* =========================
+   NOSSA MISSÃO
+   ========================= */
 
 .sobre-missao {
   padding: 95px 7%;
@@ -152,7 +161,9 @@
 }
 
 
-/* CHAMADA FINAL */
+/* =========================
+   CHAMADA FINAL
+   ========================= */
 
 .sobre-cta {
   padding: 90px 7%;
@@ -192,7 +203,9 @@
 }
 
 
-/* BOTÕES DA CHAMADA FINAL */
+/* =========================
+   BOTÕES DA CHAMADA FINAL
+   ========================= */
 
 .sobre-cta-botoes {
   display: flex;
@@ -245,109 +258,128 @@
   background-color: #f4ecd8;
 }
 
-/*MODO ESCURO - PÁGINA SOBRE */
+
+/* =========================
+   MODO ESCURO - PÁGINA SOBRE
+   ========================= */
 
 html.dark .sobre {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
 
+
+/* HERO */
+
 html.dark .sobre-hero {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
 
 html.dark .sobre-subtitulo {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .sobre-conteudo h1 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .sobre-conteudo > p:not(.sobre-subtitulo) {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
 html.dark .sobre-destaque {
-  background-color: #2d4726;
+  background-color: #31492b;
 }
 
 html.dark .sobre-destaque span {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 
 /* CARDS */
 
 html.dark .sobre-blocos {
-  background-color: #182414;
+  background-color: #22381d;
 }
 
 html.dark .sobre-card {
-  background-color: #141f10;
-  border-color: #2d4227;
+  background-color: #1d3019;
+  border-color: #517541;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.18);
 }
 
 html.dark .sobre-numero {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .sobre-card h2 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .sobre-card p {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
 
 /* NOSSA MISSÃO */
 
 html.dark .sobre-missao {
-  background-color: #22351d;
+  background-color: #31492b;
 }
 
 html.dark .sobre-missao h2 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .sobre-missao-conteudo > p:not(.sobre-subtitulo) {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
 
 /* CHAMADA FINAL */
 
 html.dark .sobre-cta {
-  background-color: #182414;
+  background-color: #263d20;
 }
 
 html.dark .sobre-cta h2 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .sobre-cta-conteudo > p:not(.sobre-subtitulo) {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* BOTÕES NO MODO ESCURO */
+
 html.dark .sobre-cta-botoes .botao-principal {
-  background-color: #517541;
-  border-color: #517541;
-  color: #141f10;
+  background-color: #94b555;
+  border-color: #94b555;
+  color: #162312;
+}
+
+html.dark .sobre-cta-botoes .botao-principal:hover {
+  background-color: #a8c766;
+  border-color: #a8c766;
 }
 
 html.dark .sobre-cta-botoes .botao-secundario {
   background-color: transparent;
-  border-color: #517541;
-  color: #94b555;
+  border-color: #a8c766;
+  color: #a8c766;
 }
 
 html.dark .sobre-cta-botoes .botao-secundario:hover {
-  background-color: #517541;
-  color: #141f10;
+  background-color: #a8c766;
+  border-color: #a8c766;
+  color: #162312;
 }
 
 
-/* TABLET */
+/* =========================
+   TABLET
+   ========================= */
 
 @media (max-width: 900px) {
 
@@ -404,10 +436,13 @@ html.dark .sobre-cta-botoes .botao-secundario:hover {
   .sobre-cta h2 {
     font-size: 2.2rem;
   }
+
 }
 
 
-/* CELULAR */
+/* =========================
+   CELULAR
+   ========================= */
 
 @media (max-width: 600px) {
 
@@ -513,10 +548,13 @@ html.dark .sobre-cta-botoes .botao-secundario:hover {
   .sobre-cta-botoes .botao-secundario {
     width: 100%;
   }
+
 }
 
 
-/* CELULARES PEQUENOS */
+/* =========================
+   CELULARES PEQUENOS
+   ========================= */
 
 @media (max-width: 480px) {
 
@@ -555,4 +593,5 @@ html.dark .sobre-cta-botoes .botao-secundario:hover {
   .sobre-cta h2 {
     font-size: 1.8rem;
   }
+
 }

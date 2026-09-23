@@ -1,10 +1,15 @@
 .pedidos-container {
-  flex: 1; 
+  flex: 1;
   padding: 40px 7%;
   background-color: #f4ecd8;
   min-height: calc(100vh - 80px);
   transition: background-color 0.3s ease;
 }
+
+
+/* =========================
+   CABEÇALHO
+   ========================= */
 
 .pedidos-header {
   display: flex;
@@ -27,19 +32,34 @@
   transition: color 0.3s ease;
 }
 
+
+/* =========================
+   GRID DE PEDIDOS
+   ========================= */
+
 .pedidos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
 }
 
+
+/* =========================
+   CARD DO PEDIDO
+   ========================= */
+
 .pedido-card {
   background-color: white;
   border-radius: 16px;
   border-left: 6px solid #3f5d32;
-  box-shadow: 0 4px 15px rgba(63, 93, 50, 0.06); 
+  box-shadow: 0 4px 15px rgba(63, 93, 50, 0.06);
+
   display: flex;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.3s ease;
 }
 
 .pedido-card:hover {
@@ -47,95 +67,161 @@
   box-shadow: 0 8px 24px rgba(63, 93, 50, 0.12);
 }
 
+
+/* =========================
+   INFORMAÇÕES DO PEDIDO
+   ========================= */
+
 .pedido-info {
   padding: 24px;
+
   display: flex;
   flex-direction: column;
+
   gap: 12px;
+
   width: 100%;
 }
 
 .pedido-categoria {
   align-self: flex-start;
+
   font-size: 0.75rem;
   font-weight: bold;
+
   text-transform: uppercase;
+
   background-color: #e3ede4;
   color: #3f5d32;
+
   padding: 4px 10px;
+
   border-radius: 20px;
+
   letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .pedido-info h3 {
   color: #3f5d32;
+
   font-size: 1.4rem;
+
   line-height: 1.25;
+
   margin-top: 4px;
+
   transition: color 0.3s ease;
 }
 
 .pedido-solicitante {
   font-size: 0.95rem;
+
   color: #6f8a3c;
+
   transition: color 0.3s ease;
 }
 
 .pedido-descricao {
   font-size: 1.02rem;
+
   line-height: 1.6;
+
   color: #5c5148;
+
   font-style: italic;
+
   background-color: #faf8f2;
+
   padding: 12px;
+
   border-radius: 8px;
+
   margin-bottom: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
+
+/* =========================
+   MODO ESCURO
+   ========================= */
+
 html.dark .pedidos-container {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
+
+
+/* Cabeçalho */
 
 html.dark .pedidos-header h1 {
   color: #e6edd3;
 }
 
 html.dark .pedidos-header p {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
+
+
+/* Card */
 
 html.dark .pedido-card {
-  background-color: #141f10;
-  border-left-color: #517541;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  background-color: #1d3019;
+
+  border-left-color: #94b555;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
 }
+
+
+/* Categoria */
 
 html.dark .pedido-categoria {
-  background-color: #1b2917;
-  color: #94b555;
+  background-color: #31492b;
+
+  color: #a8c766;
 }
+
+
+/* Título */
 
 html.dark .pedido-info h3 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
+
+
+/* Solicitante */
 
 html.dark .pedido-solicitante {
-  color: #94b555;
+  color: #a8c766;
 }
+
+
+/* Descrição */
 
 html.dark .pedido-descricao {
-  background-color: #1b2917;
-  color: #bdc7b5;
+  background-color: #31492b;
+
+  color: #d3dccb;
 }
 
 
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
 @media (max-width: 600px) {
+
   .pedidos-header {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .pedidos-header .botao-principal {
     width: 100%;
     text-align: center;
