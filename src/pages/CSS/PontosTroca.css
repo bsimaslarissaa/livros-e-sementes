@@ -1,0 +1,781 @@
+
+.pontos-container {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  background-color: #f4ecd8;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* CABEÇALHO */
+
+.pontos-header {
+  padding: 70px 7% 35px;
+  max-width: 900px;
+}
+
+.pontos-subtitulo {
+  color: #6f8a3c;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  margin-bottom: 12px;
+}
+
+.pontos-header h1 {
+  color: #3f5d32;
+
+  font-size: 3rem;
+  line-height: 1.15;
+
+  margin-bottom: 18px;
+}
+
+.pontos-introducao {
+  color: #5c5148;
+
+  font-size: 1.08rem;
+  line-height: 1.7;
+
+  max-width: 700px;
+}
+
+
+/* ABAS DOS PONTOS */
+
+.pontos-abas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 7% 30px;
+
+  overflow-x: auto;
+}
+
+.ponto-aba {
+  padding: 11px 22px;
+
+  border: 2px solid #3f5d32;
+  border-radius: 30px;
+
+  background-color: transparent;
+  color: #3f5d32;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ponto-aba:hover {
+  transform: translateY(-1px);
+}
+
+.ponto-aba-ativa {
+  background-color: #3f5d32;
+  color: #ffffff;
+}
+
+
+/* DETALHES DO PONTO */
+
+.ponto-detalhes {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 50px;
+
+  align-items: center;
+
+  margin: 0 7% 70px;
+  padding: 35px;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 24px;
+
+  box-shadow: 0 8px 28px rgba(63, 93, 50, 0.08);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* IMAGEM */
+
+.ponto-imagem {
+  width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background-color: #e9dfc3;
+}
+
+.ponto-imagem img {
+  width: 100%;
+  height: 100%;
+
+  min-height: 480px;
+  max-height: 620px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.ponto-imagem:hover img {
+  transform: scale(1.015);
+}
+
+
+/* CONTEÚDO DO PONTO */
+
+.ponto-conteudo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.ponto-etiqueta {
+  display: inline-block;
+
+  padding: 7px 13px;
+
+  margin-bottom: 16px;
+
+  border-radius: 30px;
+
+  background-color: #e3ede4;
+  color: #3f5d32;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ponto-conteudo h2 {
+  color: #3f5d32;
+
+  font-size: 2.5rem;
+  line-height: 1.15;
+
+  margin-bottom: 5px;
+}
+
+.ponto-tipo {
+  color: #6f8a3c;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  margin-bottom: 24px;
+}
+
+.ponto-descricao {
+  color: #5c5148;
+
+  font-size: 1rem;
+  line-height: 1.75;
+
+  margin-bottom: 15px;
+}
+
+
+/* LOCALIZAÇÃO E CONTATO */
+
+.ponto-localizacao,
+.ponto-contato {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-top: 12px;
+  padding: 17px 18px;
+
+  background-color: #f7f2e5;
+
+  border-radius: 12px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.ponto-localizacao-numero,
+.ponto-contato-numero {
+  flex-shrink: 0;
+
+  color: #8aa05a;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  padding-top: 2px;
+}
+
+.ponto-localizacao h3,
+.ponto-contato strong {
+  display: block;
+
+  color: #3f5d32;
+
+  font-size: 1rem;
+
+  margin-bottom: 5px;
+}
+
+.ponto-localizacao p,
+.ponto-contato p {
+  color: #5c5148;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  margin: 0;
+}
+
+
+/* BOTÃO GOOGLE MAPS */
+
+.ponto-mapa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 22px;
+
+  padding: 13px 22px;
+
+  border: 2px solid #3f5d32;
+  border-radius: 8px;
+
+  background-color: #3f5d32;
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ponto-mapa:hover {
+  background-color: #314a27;
+  border-color: #314a27;
+
+  transform: translateY(-1px);
+}
+
+
+/* COMO FUNCIONA */
+
+.ponto-como-funciona {
+  padding: 75px 7% 85px;
+
+  background-color: #fffdf7;
+
+  transition: background-color 0.3s ease;
+}
+
+.ponto-como-header {
+  max-width: 760px;
+
+  margin-bottom: 40px;
+}
+
+.ponto-como-header h2 {
+  color: #3f5d32;
+
+  font-size: 2.4rem;
+  line-height: 1.2;
+
+  margin-bottom: 15px;
+}
+
+.ponto-como-header > p:not(.pontos-subtitulo) {
+  color: #5c5148;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* CARDS DE PARTICIPAÇÃO */
+
+.ponto-acoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.ponto-acao-card {
+  min-height: 220px;
+
+  padding: 28px 25px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 16px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ponto-acao-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 22px rgba(63, 93, 50, 0.1);
+}
+
+.ponto-acao-numero {
+  display: block;
+
+  color: #8aa05a;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 25px;
+}
+
+.ponto-acao-card h3 {
+  color: #3f5d32;
+
+  font-size: 1.25rem;
+
+  margin-bottom: 13px;
+}
+
+.ponto-acao-card p {
+  color: #5c5148;
+
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+
+/* MENSAGEM FINAL */
+
+.ponto-mensagem-final {
+  padding: 80px 7%;
+
+  text-align: center;
+
+  background-color: #e9dfc3;
+
+  transition: background-color 0.3s ease;
+}
+
+.ponto-mensagem-final .pontos-subtitulo {
+  margin-bottom: 15px;
+}
+
+.ponto-mensagem-final h2 {
+  max-width: 800px;
+
+  margin: 0 auto 18px;
+
+  color: #3f5d32;
+
+  font-size: 2.3rem;
+  line-height: 1.25;
+}
+
+.ponto-mensagem-final > p:not(.pontos-subtitulo) {
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  color: #5c5148;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* MODO ESCURO */
+
+html.dark .pontos-container {
+  background-color: #263d20;
+}
+
+
+/* CABEÇALHO */
+
+html.dark .pontos-subtitulo {
+  color: #a8c766;
+}
+
+html.dark .pontos-header h1 {
+  color: #f0f3e6;
+}
+
+html.dark .pontos-introducao {
+  color: #d3dccb;
+}
+
+
+/* ABAS */
+
+html.dark .ponto-aba {
+  border-color: #a8c766;
+  color: #a8c766;
+}
+
+html.dark .ponto-aba:hover {
+  background-color: #31492b;
+}
+
+html.dark .ponto-aba-ativa {
+  background-color: #94b555;
+  border-color: #94b555;
+  color: #162312;
+}
+
+
+/* DETALHES */
+
+html.dark .ponto-detalhes {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .ponto-imagem {
+  background-color: #31492b;
+}
+
+html.dark .ponto-etiqueta {
+  background-color: #31492b;
+  color: #a8c766;
+}
+
+html.dark .ponto-conteudo h2 {
+  color: #f0f3e6;
+}
+
+html.dark .ponto-tipo {
+  color: #a8c766;
+}
+
+html.dark .ponto-descricao {
+  color: #d3dccb;
+}
+
+
+/* LOCALIZAÇÃO E CONTATO */
+
+html.dark .ponto-localizacao,
+html.dark .ponto-contato {
+  background-color: #31492b;
+}
+
+html.dark .ponto-localizacao-numero,
+html.dark .ponto-contato-numero {
+  color: #a8c766;
+}
+
+html.dark .ponto-localizacao h3,
+html.dark .ponto-contato strong {
+  color: #f0f3e6;
+}
+
+html.dark .ponto-localizacao p,
+html.dark .ponto-contato p {
+  color: #d3dccb;
+}
+
+
+/* BOTÃO MAPS */
+
+html.dark .ponto-mapa {
+  background-color: #94b555;
+  border-color: #94b555;
+
+  color: #162312;
+}
+
+html.dark .ponto-mapa:hover {
+  background-color: #a8c766;
+  border-color: #a8c766;
+}
+
+
+/* COMO FUNCIONA */
+
+html.dark .ponto-como-funciona {
+  background-color: #22381d;
+}
+
+html.dark .ponto-como-header h2 {
+  color: #f0f3e6;
+}
+
+html.dark .ponto-como-header > p:not(.pontos-subtitulo) {
+  color: #d3dccb;
+}
+
+
+/* CARDS */
+
+html.dark .ponto-acao-card {
+  background-color: #1d3019;
+
+  border-color: #517541;
+}
+
+html.dark .ponto-acao-numero {
+  color: #a8c766;
+}
+
+html.dark .ponto-acao-card h3 {
+  color: #f0f3e6;
+}
+
+html.dark .ponto-acao-card p {
+  color: #d3dccb;
+}
+
+html.dark .ponto-acao-card:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+
+/* MENSAGEM FINAL */
+
+html.dark .ponto-mensagem-final {
+  background-color: #31492b;
+}
+
+html.dark .ponto-mensagem-final h2 {
+  color: #f0f3e6;
+}
+
+html.dark .ponto-mensagem-final > p:not(.pontos-subtitulo) {
+  color: #d3dccb;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+  .ponto-detalhes {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .ponto-imagem img {
+    min-height: 0;
+    max-height: none;
+
+    aspect-ratio: 4 / 3;
+  }
+
+  .ponto-acoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+  .pontos-header {
+    padding: 50px 24px 28px;
+  }
+
+  .pontos-header h1 {
+    font-size: 2.3rem;
+  }
+
+  .pontos-introducao {
+    font-size: 1rem;
+  }
+
+
+  /* ABAS */
+
+  .pontos-abas {
+    padding: 0 24px 25px;
+  }
+
+
+  /* PONTO DE TROCA */
+
+  .ponto-detalhes {
+    margin: 0 24px 50px;
+
+    padding: 18px;
+
+    gap: 28px;
+
+    border-radius: 18px;
+  }
+
+  .ponto-imagem {
+    border-radius: 13px;
+  }
+
+  .ponto-imagem img {
+    min-height: 0;
+    max-height: none;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+  }
+
+  .ponto-conteudo h2 {
+    font-size: 2rem;
+  }
+
+  .ponto-descricao {
+    font-size: 0.95rem;
+  }
+
+
+  /* LOCALIZAÇÃO */
+
+  .ponto-localizacao,
+  .ponto-contato {
+    padding: 15px;
+  }
+
+
+  /* GOOGLE MAPS */
+
+  .ponto-mapa {
+    width: 100%;
+
+    text-align: center;
+  }
+
+
+  /* COMO FUNCIONA */
+
+  .ponto-como-funciona {
+    padding: 60px 24px;
+  }
+
+  .ponto-como-header h2 {
+    font-size: 2rem;
+  }
+
+  .ponto-acoes {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .ponto-acao-card {
+    min-height: auto;
+
+    padding: 25px 22px;
+  }
+
+  .ponto-acao-numero {
+    margin-bottom: 18px;
+  }
+
+
+  /* MENSAGEM FINAL */
+
+  .ponto-mensagem-final {
+    padding: 60px 24px;
+  }
+
+  .ponto-mensagem-final h2 {
+    font-size: 1.9rem;
+  }
+
+}
+
+
+/*  CELULARES PEQUENOS */
+
+@media (max-width: 480px) {
+
+  .pontos-header {
+    padding: 45px 20px 25px;
+  }
+
+  .pontos-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .pontos-abas {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .ponto-detalhes {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    padding: 15px;
+  }
+
+  .ponto-como-funciona {
+    padding: 50px 20px;
+  }
+
+  .ponto-mensagem-final {
+    padding: 55px 20px;
+  }
+
+  .ponto-mensagem-final h2 {
+    font-size: 1.75rem;
+  }
+
+}
