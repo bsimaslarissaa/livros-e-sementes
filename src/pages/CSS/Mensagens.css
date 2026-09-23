@@ -1,0 +1,649 @@
+/* =========================================
+   PÁGINA DE MENSAGENS
+   ========================================= */
+
+.mensagens-container {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  padding: 55px 7% 70px;
+
+  background-color: #f4ecd8;
+  color: #443b34;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+.mensagens-header {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto 35px;
+}
+
+
+.mensagens-subtitulo {
+  margin: 0 0 8px;
+
+  color: #6f8a3c;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.mensagens-header h1 {
+  margin: 0 0 10px;
+
+  color: #3f5d32;
+
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+
+.mensagens-header > p:last-child {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #6a5c50;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   LISTA DE CONVERSAS
+   ========================================= */
+
+.mensagens-lista {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+/* =========================================
+   CARD DA CONVERSA
+   ========================================= */
+
+.mensagem-card {
+  width: 100%;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 18px rgba(63, 93, 50, 0.06);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.3s ease;
+}
+
+
+.mensagem-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #b7c58a;
+
+  box-shadow: 0 8px 22px rgba(63, 93, 50, 0.11);
+}
+
+
+/* =========================================
+   IMAGEM
+   ========================================= */
+
+.mensagem-card-imagem {
+  width: 80px;
+  height: 95px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background-color: #f0eadb;
+
+  border: 1px solid #dfd2b8;
+}
+
+
+.mensagem-card-imagem img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.mensagem-sem-imagem {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  color: #6a5c50;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   CONTEÚDO
+   ========================================= */
+
+.mensagem-card-conteudo {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.mensagem-card-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.mensagem-tipo {
+  display: inline-block;
+
+  margin-bottom: 5px;
+
+  color: #6f8a3c;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.mensagem-card h2 {
+  margin: 0;
+
+  color: #3f5d32;
+
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+
+.mensagem-data {
+  flex-shrink: 0;
+
+  color: #8a8179;
+
+  font-size: 0.75rem;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   PAPEL NA CONVERSA
+   ========================================= */
+
+.mensagem-papel {
+  margin: 8px 0 5px;
+
+  color: #6a5c50;
+
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   PRÉVIA DA ÚLTIMA MENSAGEM
+   ========================================= */
+
+.mensagem-preview {
+  max-width: 700px;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #75695f;
+
+  font-size: 0.92rem;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   BOTÃO ABRIR
+   ========================================= */
+
+.mensagem-abrir {
+  flex-shrink: 0;
+
+  min-width: 90px;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background-color: #3f5d32;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.mensagem-abrir:hover {
+  background-color: #314a27;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   SEM CONVERSAS
+   ========================================= */
+
+.mensagens-vazio {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 60px auto 0;
+  padding: 55px 35px;
+
+  text-align: center;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 18px;
+
+  box-shadow: 0 6px 22px rgba(63, 93, 50, 0.06);
+}
+
+
+.mensagens-vazio h2 {
+  margin: 0 0 12px;
+
+  color: #3f5d32;
+
+  font-size: 1.6rem;
+}
+
+
+.mensagens-vazio p {
+  max-width: 520px;
+
+  margin: 0 auto;
+
+  color: #6a5c50;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   CARREGAMENTO / ERRO
+   ========================================= */
+
+.mensagens-status {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 60px auto 0;
+  padding: 45px 30px;
+
+  text-align: center;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 18px;
+
+  box-shadow: 0 6px 22px rgba(63, 93, 50, 0.06);
+}
+
+
+.mensagens-status h2 {
+  margin: 0 0 12px;
+
+  color: #3f5d32;
+}
+
+
+.mensagens-status p {
+  margin: 0;
+
+  color: #6a5c50;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+html.dark .mensagens-container {
+  background-color: #263d20;
+  color: #f0f3e6;
+}
+
+
+html.dark .mensagens-subtitulo {
+  color: #a8c766;
+}
+
+
+html.dark .mensagens-header h1 {
+  color: #f0f3e6;
+}
+
+
+html.dark .mensagens-header > p:last-child {
+  color: #d3dccb;
+}
+
+
+/* CARD */
+
+html.dark .mensagem-card {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.16);
+}
+
+
+html.dark .mensagem-card:hover {
+  border-color: #94b555;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+}
+
+
+/* IMAGEM */
+
+html.dark .mensagem-card-imagem {
+  background-color: #31492b;
+
+  border-color: #517541;
+}
+
+
+html.dark .mensagem-sem-imagem {
+  color: #d3dccb;
+}
+
+
+/* TEXTO */
+
+html.dark .mensagem-tipo {
+  color: #a8c766;
+}
+
+
+html.dark .mensagem-card h2 {
+  color: #f0f3e6;
+}
+
+
+html.dark .mensagem-data {
+  color: #b7c2b0;
+}
+
+
+html.dark .mensagem-papel {
+  color: #d3dccb;
+}
+
+
+html.dark .mensagem-preview {
+  color: #c3cec0;
+}
+
+
+/* BOTÃO */
+
+html.dark .mensagem-abrir {
+  background-color: #94b555;
+  color: #162312;
+}
+
+
+html.dark .mensagem-abrir:hover {
+  background-color: #a8c766;
+}
+
+
+/* VAZIO */
+
+html.dark .mensagens-vazio {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+}
+
+
+html.dark .mensagens-vazio h2 {
+  color: #f0f3e6;
+}
+
+
+html.dark .mensagens-vazio p {
+  color: #d3dccb;
+}
+
+
+/* STATUS */
+
+html.dark .mensagens-status {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+}
+
+
+html.dark .mensagens-status h2 {
+  color: #f0f3e6;
+}
+
+
+html.dark .mensagens-status p {
+  color: #d3dccb;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .mensagens-container {
+    padding: 40px 5% 60px;
+  }
+
+
+  .mensagens-header h1 {
+    font-size: 2.1rem;
+  }
+
+
+  .mensagem-card {
+    gap: 15px;
+
+    padding: 15px;
+  }
+
+
+  .mensagem-card-imagem {
+    width: 70px;
+    height: 85px;
+  }
+
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .mensagens-container {
+    min-height: calc(100vh - 70px);
+
+    padding: 30px 16px 50px;
+  }
+
+
+  .mensagens-header {
+    margin-bottom: 25px;
+  }
+
+
+  .mensagens-header h1 {
+    font-size: 1.8rem;
+  }
+
+
+  .mensagens-header > p:last-child {
+    font-size: 0.92rem;
+  }
+
+
+  /* CARD */
+
+  .mensagem-card {
+    position: relative;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+  }
+
+
+  .mensagem-card-imagem {
+    width: 60px;
+    height: 75px;
+  }
+
+
+  .mensagem-card-topo {
+    display: block;
+  }
+
+
+  .mensagem-card h2 {
+    padding-right: 5px;
+
+    font-size: 1.05rem;
+  }
+
+
+  .mensagem-data {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 0.68rem;
+  }
+
+
+  .mensagem-papel {
+    margin-top: 7px;
+
+    font-size: 0.76rem;
+  }
+
+
+  .mensagem-preview {
+    max-width: 100%;
+
+    padding-right: 5px;
+
+    font-size: 0.83rem;
+  }
+
+
+  /* BOTÃO */
+
+  .mensagem-abrir {
+    display: none;
+  }
+
+
+  /* VAZIO */
+
+  .mensagens-vazio {
+    margin-top: 35px;
+
+    padding: 40px 20px;
+  }
+
+}

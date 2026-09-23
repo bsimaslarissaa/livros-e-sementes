@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import './pages/CSS/Home.css'
 import './pages/CSS/Sobre.css'
 import './pages/CSS/Livros.css'
@@ -11,6 +12,8 @@ import './pages/CSS/Mural.css'
 import './pages/CSS/AdicionarSemente.css'
 
 import Header from './components/Header'
+import ChatFlutuante from './components/ChatFlutuante'
+
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import Livros from './pages/Livros'
@@ -23,6 +26,8 @@ import AdicionarSemente from './pages/AdicionarSemente'
 import Pedidos from './pages/Mural'
 import AdicionarPedido from './pages/AdicionarPedido'
 import RedefinirSenha from './pages/RedefinirSenha'
+import Conversa from './pages/Conversa'
+import Mensagens from './pages/Mensagens'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -37,25 +42,89 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <Header
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sobre" element={<Sobre />} />
-        <Route path="/livros" element={<Livros />} />
-        <Route path="/sementes" element={<Sementes />} />
-        <Route path="/pontos-troca" element={<PontosTroca />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/redefinir-senha"element={<RedefinirSenha />} />
-        <Route path="/addlivro" element={<AdicionarLivro />} />
-        <Route path="/addsemente" element={<AdicionarSemente />} />
-        <Route path="/pedidos" element={<Pedidos/>}/>
-        <Route path="/addpedido" element={<AdicionarPedido/>}/>
+
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        <Route
+          path="/sobre"
+          element={<Sobre />}
+        />
+
+        <Route
+          path="/livros"
+          element={<Livros />}
+        />
+
+        <Route
+          path="/sementes"
+          element={<Sementes />}
+        />
+
+        <Route
+          path="/pontos-troca"
+          element={<PontosTroca />}
+        />
+
+        <Route
+          path="/mensagens"
+          element={<Mensagens />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/cadastro"
+          element={<Cadastro />}
+        />
+
+        <Route
+          path="/redefinir-senha"
+          element={<RedefinirSenha />}
+        />
+
+        <Route
+          path="/addlivro"
+          element={<AdicionarLivro />}
+        />
+
+        <Route
+          path="/addsemente"
+          element={<AdicionarSemente />}
+        />
+
+        <Route
+          path="/pedidos"
+          element={<Pedidos />}
+        />
+
+        <Route
+          path="/addpedido"
+          element={<AdicionarPedido />}
+        />
+
+        <Route
+          path="/conversa/:id"
+          element={<Conversa />}
+        />
+
       </Routes>
+
+      {/* CHAT FLUTUANTE */}
+      <ChatFlutuante />
+
     </BrowserRouter>
   )
 }

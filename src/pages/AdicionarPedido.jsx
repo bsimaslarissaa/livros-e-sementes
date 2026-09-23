@@ -5,7 +5,7 @@ import { supabase } from '../supabaseClient'
 function AdicionarPedido() {
   const navigate = useNavigate()
   const [carregando, setCarregando] = useState(false)
-  
+
   const [novoPedido, setNovoPedido] = useState({
     item_pedido: '',
     categoria: '',
@@ -13,22 +13,72 @@ function AdicionarPedido() {
     solicitante: ''
   })
 
+
+  // =====================================
+  // ALTERAR CAMPOS DO FORMULÁRIO
+  // =====================================
+
   const handleChange = (e) => {
     const { name, value } = e.target
-    setNovoPedido({ ...novoPedido, [name]: value })
+
+    setNovoPedido({
+      ...novoPedido,
+      [name]: value
+    })
   }
+
+
+  // =====================================
+  // PUBLICAR PEDIDO
+  // =====================================
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (!novoPedido.item_pedido || !novoPedido.categoria || !novoPedido.solicitante) {
-      alert('Por favor, preencha todos os campos obrigatórios! ⚠️')
+
+    if (
+      !novoPedido.item_pedido ||
+      !novoPedido.categoria ||
+      !novoPedido.solicitante
+    ) {
+      alert(
+        'Por favor, preencha todos os campos obrigatórios!'
+      )
       return
     }
 
     setCarregando(true)
 
     try {
+
+      // =====================================
+      // BUSCAR USUÁRIO LOGADO
+      // =====================================
+
+      const {
+        data: { user },
+        error: userError
+      } = await supabase.auth.getUser()
+
+      if (userError) {
+        throw userError
+      }
+
+
+      // Usuário precisa estar autenticado
+      if (!user) {
+        alert(
+          'Você precisa entrar na sua conta para publicar um pedido.'
+        )
+
+        navigate('/login')
+        return
+      }
+
+
+      // =====================================
+      // SALVAR PEDIDO
+      // =====================================
+
       const { error } = await supabase
         .from('pedidos')
         .insert([
@@ -36,85 +86,182 @@ function AdicionarPedido() {
             item_pedido: novoPedido.item_pedido,
             categoria: novoPedido.categoria,
             descricao: novoPedido.descricao,
-            solicitante: novoPedido.solicitante
+            solicitante: novoPedido.solicitante,
+
+            // Guarda quem realmente criou o pedido
+            user_id: user.id
           }
         ])
 
-      if (error) throw error
 
-      console.log('Pedido publicado com sucesso:', novoPedido)
-      alert('Pedido publicado com sucesso no mural!')
-      
-      setNovoPedido({ item_pedido: '', categoria: '', descricao: '', solicitante: '' })
+      if (error) {
+        throw error
+      }
+
+
+      console.log(
+        'Pedido publicado com sucesso:',
+        novoPedido
+      )
+
+      alert(
+        'Pedido publicado com sucesso no mural!'
+      )
+
+
+      // Limpa o formulário
+      setNovoPedido({
+        item_pedido: '',
+        categoria: '',
+        descricao: '',
+        solicitante: ''
+      })
+
+
+      // Volta para o mural
       navigate('/pedidos')
 
+
     } catch (error) {
-      console.error('Erro ao salvar pedido:', error.message)
-      alert(`Ops, erro ao salvar pedido: ${error.message}`)
+
+      console.error(
+        'Erro ao salvar pedido:',
+        error
+      )
+
+      alert(
+        `Ops, erro ao salvar pedido: ${error.message}`
+      )
+
     } finally {
       setCarregando(false)
     }
   }
 
+
+  // =====================================
+  // PÁGINA
+  // =====================================
+
   return (
     <main className="form-container">
+
       <div className="form-header">
-        <h1>O que você está procurando?</h1>
-        <p>Faça um pedido para a comunidade. Alguém pode ter exatamente o que você precisa!</p>
+
+        <h1>
+          O que você está procurando?
+        </h1>
+
+        <p>
+          Faça um pedido para a comunidade. Alguém pode ter
+          exatamente o que você precisa!
+        </p>
+
       </div>
 
-      <form onSubmit={handleSubmit} className="livro-form">
-        <div className="form-grupo">
-          <label htmlFor="item_pedido">O que você precisa? *</label>
-          <input 
-            type="text" 
-            id="item_pedido" 
-            name="item_pedido" 
-            value={novoPedido.item_pedido} 
-            onChange={handleChange} 
-            placeholder="Ex: Muda de Macieira, Livro de Botânica..." 
-            required
-          />
-        </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="livro-form"
+      >
+
+        {/* ITEM */}
 
         <div className="form-grupo">
-          <label htmlFor="categoria">Categoria *</label>
-          <select 
-            id="categoria" 
-            name="categoria" 
-            value={novoPedido.categoria} 
-            onChange={handleChange} 
+
+          <label htmlFor="item_pedido">
+            O que você precisa? *
+          </label>
+
+          <input
+            type="text"
+            id="item_pedido"
+            name="item_pedido"
+            value={novoPedido.item_pedido}
+            onChange={handleChange}
+            placeholder="Ex: Muda de Macieira, Livro de Botânica..."
+            required
+          />
+
+        </div>
+
+
+        {/* CATEGORIA */}
+
+        <div className="form-grupo">
+
+          <label htmlFor="categoria">
+            Categoria *
+          </label>
+
+          <select
+            id="categoria"
+            name="categoria"
+            value={novoPedido.categoria}
+            onChange={handleChange}
             required
           >
-            <option value="">Selecione uma categoria</option>
-            <option value="Livro">Livro</option>
-            <option value="Muda">Muda</option>
-            <option value="Semente">Semente</option>
-            <option value="Outros">Outros</option>
+
+            <option value="">
+              Selecione uma categoria
+            </option>
+
+            <option value="Livro">
+              Livro
+            </option>
+
+            <option value="Muda">
+              Muda
+            </option>
+
+            <option value="Semente">
+              Semente
+            </option>
+
+            <option value="Outros">
+              Outros
+            </option>
+
           </select>
+
         </div>
 
+
+        {/* NOME */}
+
         <div className="form-grupo">
-          <label htmlFor="solicitante">Seu Nome *</label>
-          <input 
-            type="text" 
-            id="solicitante" 
-            name="solicitante" 
-            value={novoPedido.solicitante} 
-            onChange={handleChange} 
-            placeholder="Ex: Lucas, Beatriz..." 
+
+          <label htmlFor="solicitante">
+            Seu Nome *
+          </label>
+
+          <input
+            type="text"
+            id="solicitante"
+            name="solicitante"
+            value={novoPedido.solicitante}
+            onChange={handleChange}
+            placeholder="Ex: Lucas, Beatriz..."
             required
           />
+
         </div>
 
+
+        {/* DESCRIÇÃO */}
+
         <div className="form-grupo">
-          <label htmlFor="descricao">Explique o seu pedido (Opcional)</label>
-          <textarea 
-            id="descricao" 
-            name="descricao" 
-            value={novoPedido.descricao} 
-            onChange={handleChange} 
-            placeholder="Conte um pouco sobre por que você quer esse item..." 
+
+          <label htmlFor="descricao">
+            Explique o seu pedido (Opcional)
+          </label>
+
+          <textarea
+            id="descricao"
+            name="descricao"
+            value={novoPedido.descricao}
+            onChange={handleChange}
+            placeholder="Conte um pouco sobre por que você quer esse item..."
             rows="4"
             style={{
               padding: '12px 14px',
@@ -128,15 +275,36 @@ function AdicionarPedido() {
               resize: 'none'
             }}
           />
+
         </div>
 
+
+        {/* BOTÕES */}
+
         <div className="form-botoes">
-          <Link to="/pedidos" className="botao-secundario">Cancelar</Link>
-          <button type="submit" className="botao-principal" disabled={carregando}>
-            {carregando ? 'Publicando...' : 'Publicar Pedido'}
+
+          <Link
+            to="/pedidos"
+            className="botao-secundario"
+          >
+            Cancelar
+          </Link>
+
+
+          <button
+            type="submit"
+            className="botao-principal"
+            disabled={carregando}
+          >
+            {carregando
+              ? 'Publicando...'
+              : 'Publicar Pedido'}
           </button>
+
         </div>
+
       </form>
+
     </main>
   )
 }

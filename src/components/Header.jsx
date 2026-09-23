@@ -140,6 +140,16 @@ function Header({ darkMode, setDarkMode }) {
 
         {usuario ? (
           <>
+
+            {/* MENSAGENS - SOMENTE PARA USUÁRIO LOGADO */}
+            <Link
+              to="/mensagens"
+              onClick={fecharMenu}
+              className="menu-mensagens"
+            >
+              Mensagens
+            </Link>
+
             <div className="usuario-logado">
               <span className="usuario-nome">
                 Olá, {usuario.user_metadata?.display_name || 'Usuário'}
@@ -157,9 +167,11 @@ function Header({ darkMode, setDarkMode }) {
             >
               Sair
             </button>
+
           </>
         ) : (
           <>
+
             <Link to="/login" onClick={fecharMenu}>
               Entrar
             </Link>
@@ -167,6 +179,7 @@ function Header({ darkMode, setDarkMode }) {
             <Link to="/cadastro" onClick={fecharMenu}>
               Cadastre-se
             </Link>
+
           </>
         )}
 

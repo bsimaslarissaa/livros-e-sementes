@@ -1,0 +1,792 @@
+
+.conversa-container {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  padding: 50px 7%;
+
+  background-color: #f4ecd8;
+
+  display: flex;
+  justify-content: center;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================
+   CAIXA PRINCIPAL DO CHAT
+   ========================================= */
+
+.conversa-box {
+  width: 100%;
+  max-width: 1000px;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 28px rgba(63, 93, 50, 0.08);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================
+   CABEÇALHO DA CONVERSA
+   ========================================= */
+
+.conversa-header {
+  min-height: 150px;
+
+  padding: 25px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  background-color: #f7f2e5;
+
+  border-bottom: 1px solid #dfd2b8;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.conversa-header-info {
+  flex: 1;
+}
+
+
+.conversa-etiqueta {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  margin-bottom: 10px;
+
+  background-color: #e3ede4;
+  color: #3f5d32;
+
+  border-radius: 30px;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.conversa-header h1 {
+  color: #3f5d32;
+
+  font-size: 1.8rem;
+  line-height: 1.2;
+
+  margin: 0 0 7px;
+}
+
+
+.conversa-header p {
+  color: #6a5c50;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   IMAGEM DO LIVRO / SEMENTE
+   ========================================= */
+
+.conversa-item-imagem {
+  width: 90px;
+  height: 110px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  border: 1px solid #dfd2b8;
+
+  background-color: #ffffff;
+}
+
+
+.conversa-item-imagem img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   ÁREA DAS MENSAGENS
+   ========================================= */
+
+.conversa-mensagens {
+  min-height: 430px;
+  max-height: 550px;
+
+  padding: 30px;
+
+  overflow-y: auto;
+
+  background-color: #fffdf7;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  transition: background-color 0.3s ease;
+}
+
+
+/* SCROLL */
+
+.conversa-mensagens::-webkit-scrollbar {
+  width: 8px;
+}
+
+.conversa-mensagens::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.conversa-mensagens::-webkit-scrollbar-thumb {
+  background-color: #c7bda5;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   CONVERSA SEM MENSAGENS
+   ========================================= */
+
+.conversa-vazia {
+  flex: 1;
+
+  min-height: 350px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px;
+}
+
+
+.conversa-vazia h2 {
+  color: #3f5d32;
+
+  font-size: 1.5rem;
+
+  margin-bottom: 10px;
+}
+
+
+.conversa-vazia p {
+  max-width: 430px;
+
+  color: #6a5c50;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   LINHAS DAS MENSAGENS
+   ========================================= */
+
+.mensagem-linha {
+  width: 100%;
+
+  display: flex;
+}
+
+
+/* MINHAS MENSAGENS */
+
+.minha-mensagem {
+  justify-content: flex-end;
+}
+
+
+/* MENSAGENS DO OUTRO USUÁRIO */
+
+.outra-mensagem {
+  justify-content: flex-start;
+}
+
+
+/* =========================================
+   BALÃO DAS MENSAGENS
+   ========================================= */
+
+.mensagem-balao {
+  max-width: 70%;
+
+  padding: 12px 15px 8px;
+
+  border-radius: 15px;
+
+  word-break: break-word;
+}
+
+
+.mensagem-balao p {
+  margin: 0 0 5px;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+.mensagem-balao span {
+  display: block;
+
+  font-size: 0.7rem;
+
+  text-align: right;
+
+  opacity: 0.7;
+}
+
+
+/* MINHA MENSAGEM */
+
+.minha-mensagem .mensagem-balao {
+  background-color: #3f5d32;
+  color: #ffffff;
+
+  border-bottom-right-radius: 4px;
+}
+
+
+/* MENSAGEM RECEBIDA */
+
+.outra-mensagem .mensagem-balao {
+  background-color: #f0eadb;
+  color: #443b34;
+
+  border-bottom-left-radius: 4px;
+}
+
+
+/* =========================================
+   FORMULÁRIO DE ENVIO
+   ========================================= */
+
+.conversa-form {
+  padding: 20px 25px;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 12px;
+
+  background-color: #f7f2e5;
+
+  border-top: 1px solid #dfd2b8;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* CAMPO DE MENSAGEM */
+
+.conversa-form textarea {
+  flex: 1;
+
+  min-height: 52px;
+  max-height: 130px;
+
+  resize: vertical;
+
+  padding: 14px 16px;
+
+  border: 1px solid #cfc2a9;
+  border-radius: 12px;
+
+  outline: none;
+
+  background-color: #ffffff;
+  color: #443b34;
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.conversa-form textarea::placeholder {
+  color: #8a8179;
+}
+
+
+.conversa-form textarea:focus {
+  border-color: #6f8a3c;
+}
+
+
+/* =========================================
+   BOTÃO ENVIAR
+   ========================================= */
+
+.conversa-enviar {
+  min-width: 110px;
+  height: 52px;
+
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: #3f5d32;
+  color: #ffffff;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.conversa-enviar:hover:not(:disabled) {
+  background-color: #314a27;
+
+  transform: translateY(-1px);
+}
+
+
+.conversa-enviar:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   CARREGAMENTO / ERRO
+   ========================================= */
+
+.conversa-status {
+  width: 100%;
+  max-width: 650px;
+
+  margin-top: 50px;
+  padding: 45px 30px;
+
+  text-align: center;
+
+  background-color: #fffdf7;
+
+  border: 1px solid #dfd2b8;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(63, 93, 50, 0.08);
+}
+
+
+.conversa-status h2 {
+  color: #3f5d32;
+
+  font-size: 1.7rem;
+
+  margin-bottom: 12px;
+}
+
+
+.conversa-status p {
+  color: #6a5c50;
+
+  line-height: 1.6;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+html.dark .conversa-container {
+  background-color: #263d20;
+}
+
+
+/* CAIXA PRINCIPAL */
+
+html.dark .conversa-box {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+
+/* CABEÇALHO */
+
+html.dark .conversa-header {
+  background-color: #31492b;
+
+  border-bottom-color: #517541;
+}
+
+
+html.dark .conversa-etiqueta {
+  background-color: #1d3019;
+  color: #a8c766;
+}
+
+
+html.dark .conversa-header h1 {
+  color: #f0f3e6;
+}
+
+
+html.dark .conversa-header p {
+  color: #d3dccb;
+}
+
+
+html.dark .conversa-item-imagem {
+  background-color: #1d3019;
+
+  border-color: #517541;
+}
+
+
+/* MENSAGENS */
+
+html.dark .conversa-mensagens {
+  background-color: #1d3019;
+}
+
+
+html.dark .conversa-mensagens::-webkit-scrollbar-thumb {
+  background-color: #517541;
+}
+
+
+/* CONVERSA VAZIA */
+
+html.dark .conversa-vazia h2 {
+  color: #f0f3e6;
+}
+
+
+html.dark .conversa-vazia p {
+  color: #d3dccb;
+}
+
+
+/* MINHAS MENSAGENS */
+
+html.dark .minha-mensagem .mensagem-balao {
+  background-color: #94b555;
+  color: #162312;
+}
+
+
+/* MENSAGENS RECEBIDAS */
+
+html.dark .outra-mensagem .mensagem-balao {
+  background-color: #31492b;
+  color: #f0f3e6;
+}
+
+
+/* FORMULÁRIO */
+
+html.dark .conversa-form {
+  background-color: #22381d;
+
+  border-top-color: #517541;
+}
+
+
+html.dark .conversa-form textarea {
+  background-color: #31492b;
+  color: #f0f3e6;
+
+  border-color: #517541;
+}
+
+
+html.dark .conversa-form textarea::placeholder {
+  color: #b7c2b0;
+}
+
+
+html.dark .conversa-form textarea:focus {
+  border-color: #a8c766;
+}
+
+
+/* BOTÃO */
+
+html.dark .conversa-enviar {
+  background-color: #94b555;
+  color: #162312;
+}
+
+
+html.dark .conversa-enviar:hover:not(:disabled) {
+  background-color: #a8c766;
+}
+
+
+/* STATUS */
+
+html.dark .conversa-status {
+  background-color: #1d3019;
+
+  border-color: #517541;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+
+html.dark .conversa-status h2 {
+  color: #f0f3e6;
+}
+
+
+html.dark .conversa-status p {
+  color: #d3dccb;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .conversa-container {
+    padding: 35px 4%;
+  }
+
+
+  .conversa-header {
+    padding: 22px;
+  }
+
+
+  .conversa-mensagens {
+    min-height: 400px;
+
+    padding: 22px;
+  }
+
+
+  .mensagem-balao {
+    max-width: 80%;
+  }
+
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .conversa-container {
+    min-height: calc(100vh - 70px);
+
+    padding: 20px 14px;
+  }
+
+
+  .conversa-box {
+    border-radius: 16px;
+  }
+
+
+  /* CABEÇALHO */
+
+  .conversa-header {
+    min-height: auto;
+
+    padding: 18px;
+
+    gap: 15px;
+  }
+
+
+  .conversa-header h1 {
+    font-size: 1.35rem;
+  }
+
+
+  .conversa-header p {
+    font-size: 0.85rem;
+  }
+
+
+  .conversa-etiqueta {
+    font-size: 0.65rem;
+
+    padding: 5px 9px;
+  }
+
+
+  /* IMAGEM */
+
+  .conversa-item-imagem {
+    width: 65px;
+    height: 80px;
+  }
+
+
+  /* MENSAGENS */
+
+  .conversa-mensagens {
+    min-height: 430px;
+    max-height: 60vh;
+
+    padding: 18px 14px;
+
+    gap: 10px;
+  }
+
+
+  .mensagem-balao {
+    max-width: 85%;
+
+    padding: 10px 12px 7px;
+  }
+
+
+  .mensagem-balao p {
+    font-size: 0.9rem;
+  }
+
+
+  /* FORMULÁRIO */
+
+  .conversa-form {
+    padding: 12px;
+
+    gap: 8px;
+  }
+
+
+  .conversa-form textarea {
+    min-height: 48px;
+
+    padding: 12px;
+
+    font-size: 0.9rem;
+  }
+
+
+  .conversa-enviar {
+    min-width: 80px;
+    height: 48px;
+
+    padding: 0 15px;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* STATUS */
+
+  .conversa-status {
+    margin-top: 25px;
+
+    padding: 35px 20px;
+  }
+
+}
+
+
+/* =========================================
+   CELULARES PEQUENOS
+   ========================================= */
+
+@media (max-width: 400px) {
+
+  .conversa-container {
+    padding: 12px 8px;
+  }
+
+
+  .conversa-header {
+    padding: 15px;
+  }
+
+
+  .conversa-item-imagem {
+    width: 58px;
+    height: 72px;
+  }
+
+
+  .conversa-mensagens {
+    padding: 15px 10px;
+  }
+
+
+  .mensagem-balao {
+    max-width: 90%;
+  }
+
+
+  .conversa-form {
+    padding: 10px;
+  }
+
+
+  .conversa-enviar {
+    min-width: 72px;
+
+    padding: 0 12px;
+  }
+
+}
