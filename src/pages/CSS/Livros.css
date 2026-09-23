@@ -6,7 +6,10 @@
   transition: background-color 0.3s ease;
 }
 
-/* Cabeçalho da página */
+
+/* =========================
+   CABEÇALHO DA PÁGINA
+   ========================= */
 
 .livros-header {
   margin-bottom: 40px;
@@ -29,7 +32,10 @@
   transition: color 0.3s ease;
 }
 
-/* Grid dos livros */
+
+/* =========================
+   GRID DOS LIVROS
+   ========================= */
 
 .livros-grid {
   display: grid;
@@ -37,15 +43,20 @@
   gap: 30px;
 }
 
-/* Card do livro */
+
+/* =========================
+   CARD DO LIVRO
+   ========================= */
 
 .livro-card {
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(63, 93, 50, 0.08);
+
   display: flex;
   flex-direction: column;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -54,116 +65,194 @@
 
 .livro-card:hover {
   transform: translateY(-5px);
+
   box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
 }
 
-/* Capa */
+
+/* =========================
+   CAPA
+   ========================= */
 
 .card-capa {
   background-color: #eaddca;
+
   height: 280px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 15px;
+
   transition: background-color 0.3s ease;
 }
 
 .card-capa img {
   max-height: 100%;
+
+  max-width: 100%;
+
   width: auto;
+
   object-fit: contain;
+
   border-radius: 4px;
+
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Informações */
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
 
 .card-info {
   padding: 20px;
+
   display: flex;
   flex-direction: column;
+
   gap: 8px;
+
   flex: 1;
 }
 
 .card-genero {
   font-size: 0.75rem;
+
   font-weight: bold;
+
   text-transform: uppercase;
+
   color: #6f8a3c;
+
   letter-spacing: 0.5px;
+
   transition: color 0.3s ease;
 }
 
 .card-info h3 {
   color: #3f5d32;
+
   font-size: 1.3rem;
+
   line-height: 1.2;
+
   transition: color 0.3s ease;
 }
 
 .card-autor,
 .card-doador {
   font-size: 0.95rem;
+
   color: #5c5148;
+
   transition: color 0.3s ease;
 }
 
-/* Botão Tenho Interesse */
 
-.botao-secundario-pequeno {
-  margin-top: auto;
-  padding: 10px;
-  border: 2px solid #3f5d32;
-  color: #3f5d32;
-  background-color: transparent;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition:
-    background-color 0.2s,
-    color 0.2s,
-    border-color 0.3s;
-}
-
-.botao-secundario-pequeno:hover {
-  background-color: #3f5d32;
-  color: white;
-}
-
-/* Responsividade */
+/* =========================
+   ÁREA DOS BOTÕES
+   ========================= */
 
 .card-botoes {
   display: flex;
+
   gap: 12px;
+
   margin-top: auto;
+
   align-items: center;
+
   width: 100%;
+
   justify-content: space-between;
 }
 
-.botao-deletar {
-  padding: 0 14px;
-  background-color: transparent;
-  border: 2px solid #c94c4c;
-  color: #c94c4c;
+
+/* =========================
+   BOTÃO TENHO INTERESSE
+   ========================= */
+
+.botao-secundario-pequeno {
+  padding: 10px 16px;
+
+  border: 2px solid #3f5d32;
+
+  color: #ffffff;
+
+  background-color: #3f5d32;
+
   border-radius: 6px;
+
+  font-weight: bold;
+
   cursor: pointer;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
+
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.botao-secundario-pequeno:hover {
+  background-color: #314a27;
+
+  border-color: #314a27;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   BOTÃO EXCLUIR
+   ========================= */
+
+.botao-deletar {
+  width: 42px;
+
+  height: 42px;
+
+  border: 2px solid #c94c4c;
+
+  background-color: transparent;
+
+  color: #c94c4c;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 }
 
 .botao-deletar:hover {
   background-color: #c94c4c;
+
   color: white;
 }
 
-/* modo escuro */
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+
 @media (max-width: 768px) {
+
   .livros-header {
     flex-direction: column;
     align-items: flex-start;
@@ -175,10 +264,13 @@
   }
 }
 
-/* Modo escuro */
+
+/* =========================
+   MODO ESCURO
+   ========================= */
 
 html.dark .livros-container {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
 
 html.dark .livros-header h1 {
@@ -186,46 +278,73 @@ html.dark .livros-header h1 {
 }
 
 html.dark .livros-header p {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
+
+
+/* Card no modo escuro */
 
 html.dark .livro-card {
-  background-color: #141f10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: #1d3019;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
 }
+
+
+/* Área da capa no modo escuro */
 
 html.dark .card-capa {
-  background-color: #1b2917;
+  background-color: #31492b;
 }
 
+
+/* Informações no modo escuro */
+
 html.dark .card-info h3 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .card-genero {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .card-autor,
 html.dark .card-doador {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* Tenho Interesse no modo escuro */
+
 html.dark .botao-secundario-pequeno {
-  border-color: #517541;
-  color: #517541;
+  background-color: #94b555;
+
+  border-color: #94b555;
+
+  color: #14200f;
 }
 
 html.dark .botao-secundario-pequeno:hover {
-  background-color: #517541;
-  color: #1a2916;
+  background-color: #a8c766;
+
+  border-color: #a8c766;
+
+  color: #14200f;
 }
+
+
+/* Botão excluir no modo escuro */
 
 html.dark .botao-deletar {
   border-color: #ff6b6b;
+
   color: #ff6b6b;
+
+  background-color: transparent;
 }
+
 html.dark .botao-deletar:hover {
   background-color: #ff6b6b;
+
   color: #141f10;
 }

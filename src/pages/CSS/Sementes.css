@@ -27,7 +27,10 @@
   transition: color 0.3s ease;
 }
 
-/* Grid de sementes */
+
+/* =========================
+   GRID DE SEMENTES
+   ========================= */
 
 .sementes-grid {
   display: grid;
@@ -35,7 +38,10 @@
   gap: 30px;
 }
 
-/* Card */
+
+/* =========================
+   CARD
+   ========================= */
 
 .semente-card {
   background-color: white;
@@ -44,6 +50,7 @@
   box-shadow: 0 4px 12px rgba(63, 93, 50, 0.08);
   display: flex;
   flex-direction: column;
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -55,15 +62,21 @@
   box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
 }
 
-/* Imagem */
+
+/* =========================
+   IMAGEM
+   ========================= */
 
 .card-imagem {
   background-color: #eaddca;
   height: 230px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 15px;
+
   transition: background-color 0.3s ease;
 }
 
@@ -71,8 +84,11 @@
   max-height: 100%;
   max-width: 100%;
   width: auto;
+
   object-fit: contain;
+
   border-radius: 4px;
+
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -81,29 +97,42 @@
   font-size: 0.9rem;
 }
 
-/* Informações */
+
+/* =========================
+   INFORMAÇÕES
+   ========================= */
 
 .card-info {
   padding: 20px;
+
   display: flex;
   flex-direction: column;
+
   gap: 8px;
+
   flex: 1;
 }
 
 .card-tipo {
   font-size: 0.75rem;
   font-weight: bold;
+
   text-transform: uppercase;
+
   color: #6f8a3c;
+
   letter-spacing: 0.5px;
+
   transition: color 0.3s ease;
 }
 
 .card-info h3 {
   color: #3f5d32;
+
   font-size: 1.3rem;
+
   line-height: 1.2;
+
   transition: color 0.3s ease;
 }
 
@@ -111,59 +140,99 @@
 .card-quantidade,
 .card-doador {
   font-size: 0.95rem;
+
   color: #5c5148;
+
   transition: color 0.3s ease;
 }
 
-/* Mensagens */
+
+/* =========================
+   MENSAGENS
+   ========================= */
 
 .mensagem-sementes {
   text-align: center;
+
   color: #5c5148;
+
   font-size: 1.1rem;
 }
 
-/* Área dos botões */
+
+/* =========================
+   ÁREA DOS BOTÕES
+   ========================= */
 
 .cardbotoes {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   margin-top: auto;
 }
 
-/* Botão Tenho Interesse */
+
+/* =========================
+   BOTÃO TENHO INTERESSE
+   ========================= */
 
 .botao-secundario-pequeno {
-  padding: 10px;
+  padding: 10px 16px;
+
   border: 2px solid #3f5d32;
-  color: #3f5d32;
-  background-color: transparent;
+
+  color: #ffffff;
+
+  background-color: #3f5d32;
+
   border-radius: 6px;
+
   font-weight: bold;
+
   cursor: pointer;
+
   transition:
     background-color 0.2s,
     color 0.2s,
-    border-color 0.3s;
+    border-color 0.2s,
+    transform 0.2s;
 }
 
 .botao-secundario-pequeno:hover {
-  background-color: #3f5d32;
-  color: white;
+  background-color: #314a27;
+
+  border-color: #314a27;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
 }
 
-/* Botão excluir */
+
+/* =========================
+   BOTÃO EXCLUIR
+   ========================= */
 
 .botao-deletar {
   width: 42px;
+
   height: 42px;
+
   border: 1px solid #dc3545;
+
   background-color: transparent;
+
   color: #dc3545;
+
   border-radius: 6px;
+
   cursor: pointer;
+
   font-size: 1rem;
+
   transition:
     background-color 0.2s,
     color 0.2s;
@@ -171,15 +240,17 @@
 
 .botao-deletar:hover {
   background-color: #dc3545;
+
   color: white;
 }
+
 
 /* =========================
    MODO ESCURO
    ========================= */
 
 html.dark .sementes-container {
-  background-color: #1a2916;
+  background-color: #263d20;
 }
 
 html.dark .sementes-header h1 {
@@ -187,56 +258,85 @@ html.dark .sementes-header h1 {
 }
 
 html.dark .sementes-header p {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
+
+
+/* Card no modo escuro */
 
 html.dark .semente-card {
-  background-color: #141f10;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: #1d3019;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
 }
 
+
+/* Área da imagem no modo escuro */
+
 html.dark .card-imagem {
-  background-color: #1b2917;
+  background-color: #31492b;
 }
 
 html.dark .card-imagem span {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* Informações no modo escuro */
+
 html.dark .card-info h3 {
-  color: #e6edd3;
+  color: #f0f3e6;
 }
 
 html.dark .card-tipo {
-  color: #94b555;
+  color: #a8c766;
 }
 
 html.dark .card-descricao,
 html.dark .card-quantidade,
 html.dark .card-doador {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
+
+
+/* Mensagem no modo escuro */
 
 html.dark .mensagem-sementes {
-  color: #bdc7b5;
+  color: #d3dccb;
 }
 
+
+/* Tenho Interesse no modo escuro */
+
 html.dark .botao-secundario-pequeno {
-  border-color: #517541;
-  color: #517541;
+  background-color: #94b555;
+
+  border-color: #94b555;
+
+  color: #14200f;
 }
 
 html.dark .botao-secundario-pequeno:hover {
-  background-color: #517541;
-  color: #1a2916;
+  background-color: #a8c766;
+
+  border-color: #a8c766;
+
+  color: #14200f;
 }
 
+
+/* Botão excluir no modo escuro */
+
 html.dark .botao-deletar {
-  border-color: #dc3545;
-  color: #dc3545;
+  border-color: #ff6b6b;
+
+  color: #ff6b6b;
+
+  background-color: transparent;
 }
 
 html.dark .botao-deletar:hover {
-  background-color: #dc3545;
-  color: white;
+  background-color: #ff6b6b;
+
+  color: #141f10;
 }
