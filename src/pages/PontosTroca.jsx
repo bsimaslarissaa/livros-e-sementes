@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import '../pages/CSS/PontosTroca.css'
+
 import casaDiVo from '../assets/casa-di-vo.png'
+import bichoPraiano from '../assets/bicho-praiano.png'
 
 function PontosTroca() {
+  const [pontoSelecionado, setPontoSelecionado] = useState('casa-di-vo')
+
   return (
     <main className="pontos-container">
 
@@ -20,102 +25,223 @@ function PontosTroca() {
 
       {/* ABAS DOS PONTOS */}
       <section className="pontos-abas">
-        <button className="ponto-aba ponto-aba-ativa">
+
+        <button
+          type="button"
+          className={`ponto-aba ${
+            pontoSelecionado === 'casa-di-vo'
+              ? 'ponto-aba-ativa'
+              : ''
+          }`}
+          onClick={() => setPontoSelecionado('casa-di-vo')}
+        >
           Casa Di Vó
         </button>
 
-        {/*
-          Novos pontos poderão ser adicionados aqui futuramente.
-        */}
+        <button
+          type="button"
+          className={`ponto-aba ${
+            pontoSelecionado === 'bicho-praiano'
+              ? 'ponto-aba-ativa'
+              : ''
+          }`}
+          onClick={() => setPontoSelecionado('bicho-praiano')}
+        >
+          Bicho Praiano
+        </button>
+
       </section>
 
 
-      {/* PONTO DE TROCA - CASA DI VÓ */}
-      <section className="ponto-detalhes">
+      {/* ========================================
+          PONTO DE TROCA - CASA DI VÓ
+          ======================================== */}
 
-        {/* IMAGEM */}
-        <div className="ponto-imagem">
-          <img
-            src={casaDiVo}
-            alt="Casa Di Vó, ponto de troca de livros em Saquarema"
-          />
-        </div>
+      {pontoSelecionado === 'casa-di-vo' && (
 
+        <section className="ponto-detalhes">
 
-        {/* CONTEÚDO */}
-        <div className="ponto-conteudo">
-
-          <span className="ponto-etiqueta">
-            Ponto de troca
-          </span>
-
-          <h2>Casa Di Vó</h2>
-
-          <p className="ponto-tipo">
-            Cafeteria
-          </p>
-
-          <p className="ponto-descricao">
-            Na Casa Di Vó, os livros circulam livremente. A cafeteria
-            possui uma estante disponível para quem quiser descobrir
-            uma nova leitura enquanto aproveita um café.
-          </p>
-
-          <p className="ponto-descricao">
-            Você pode pegar um livro, deixar um livro para outra pessoa,
-            fazer uma troca ou simplesmente escolher uma leitura para
-            aproveitar no próprio local.
-          </p>
-
-
-          {/* LOCALIZAÇÃO */}
-          <div className="ponto-localizacao">
-
-            <div className="ponto-localizacao-numero">
-              01
-            </div>
-
-            <div>
-              <h3>Onde encontrar</h3>
-
-              <p>
-                R. Cel. Madureira, 40 - Loja 2
-                <br />
-                Centro, Saquarema - RJ, 28990-756
-              </p>
-            </div>
-
+          {/* IMAGEM */}
+          <div className="ponto-imagem">
+            <img
+              src={casaDiVo}
+              alt="Casa Di Vó, ponto de troca de livros em Saquarema"
+            />
           </div>
 
 
-          {/* CONTATO */}
-          <div className="ponto-contato">
+          {/* CONTEÚDO */}
+          <div className="ponto-conteudo">
 
-            <div className="ponto-contato-numero">
-              02
+            <span className="ponto-etiqueta">
+              Ponto de troca
+            </span>
+
+            <h2>Casa Di Vó</h2>
+
+            <p className="ponto-tipo">
+              Cafeteria
+            </p>
+
+            <p className="ponto-descricao">
+              Na Casa Di Vó, os livros circulam livremente. A cafeteria
+              possui uma estante disponível para quem quiser descobrir
+              uma nova leitura enquanto aproveita um café.
+            </p>
+
+            <p className="ponto-descricao">
+              Você pode pegar um livro, deixar um livro para outra pessoa,
+              fazer uma troca ou simplesmente escolher uma leitura para
+              aproveitar no próprio local.
+            </p>
+
+
+            {/* LOCALIZAÇÃO */}
+            <div className="ponto-localizacao">
+
+              <div className="ponto-localizacao-numero">
+                01
+              </div>
+
+              <div>
+                <h3>Onde encontrar</h3>
+
+                <p>
+                  R. Cel. Madureira, 40 - Loja 2
+                  <br />
+                  Centro, Saquarema - RJ, 28990-756
+                </p>
+              </div>
+
             </div>
 
-            <div>
-              <strong>Telefone</strong>
-              <p>(22) 99777-4513</p>
+
+            {/* CONTATO */}
+            <div className="ponto-contato">
+
+              <div className="ponto-contato-numero">
+                02
+              </div>
+
+              <div>
+                <strong>Telefone</strong>
+                <p>(22) 99777-4513</p>
+              </div>
+
             </div>
+
+
+            {/* GOOGLE MAPS */}
+            <a
+              className="ponto-mapa"
+              href="https://www.google.com/maps/search/?api=1&query=Casa+Di+Vo+Saquarema&query_place_id=ChIJCdRvDL1flwARUbs_mXh7x28"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver localização no Google Maps
+            </a>
 
           </div>
 
+        </section>
 
-          {/* GOOGLE MAPS */}
-          <a
-            className="ponto-mapa"
-            href="https://www.google.com/maps/search/?api=1&query=Casa+Di+Vo+Saquarema&query_place_id=ChIJCdRvDL1flwARUbs_mXh7x28"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver localização no Google Maps
-          </a>
+      )}
 
-        </div>
 
-      </section>
+      {/* ========================================
+          PONTO DE TROCA - BICHO PRAIANO
+          ======================================== */}
+
+      {pontoSelecionado === 'bicho-praiano' && (
+
+        <section className="ponto-detalhes">
+
+          {/* IMAGEM */}
+          <div className="ponto-imagem">
+            <img
+              src={bichoPraiano}
+              alt="Bicho Praiano, ponto de troca em Itaúna, Saquarema"
+            />
+          </div>
+
+
+          {/* CONTEÚDO */}
+          <div className="ponto-conteudo">
+
+            <span className="ponto-etiqueta">
+              Ponto de troca
+            </span>
+
+            <h2>Bicho Praiano</h2>
+
+            <p className="ponto-tipo">
+              Espaço parceiro
+            </p>
+
+            <p className="ponto-descricao">
+              O Bicho Praiano é mais um espaço parceiro do projeto
+              Livros & Sementes, disponibilizando seu estabelecimento
+              como ponto de encontro para as trocas realizadas pela
+              comunidade.
+            </p>
+
+            <p className="ponto-descricao">
+              O local funciona como ponto de troca de livros, sementes
+              e mudas, facilitando o encontro entre os participantes
+              que combinarem suas trocas pela plataforma.
+            </p>
+
+
+            {/* LOCALIZAÇÃO */}
+            <div className="ponto-localizacao">
+
+              <div className="ponto-localizacao-numero">
+                01
+              </div>
+
+              <div>
+                <h3>Onde encontrar</h3>
+
+                <p>
+                  Av. Vila Mar, 140 - Lj 2
+                  <br />
+                  Itaúna, Saquarema - RJ
+                </p>
+              </div>
+
+            </div>
+
+
+            {/* CONTATO */}
+            <div className="ponto-contato">
+
+              <div className="ponto-contato-numero">
+                02
+              </div>
+
+              <div>
+                <strong>Telefone</strong>
+                <p>(22) 99833-2267</p>
+              </div>
+
+            </div>
+
+
+            {/* GOOGLE MAPS */}
+            <a
+              className="ponto-mapa"
+              href="https://www.google.com/maps/search/?api=1&query=Av.+Vila+Mar,+140,+Itauna,+Saquarema,+RJ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver localização no Google Maps
+            </a>
+
+          </div>
+
+        </section>
+
+      )}
 
 
       {/* COMO PARTICIPAR */}
