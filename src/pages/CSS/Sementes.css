@@ -57,11 +57,6 @@
     background-color 0.3s ease;
 }
 
-.semente-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
-}
-
 
 /* =========================
    IMAGEM

@@ -63,13 +63,6 @@
     background-color 0.3s ease;
 }
 
-.livro-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 8px 20px rgba(63, 93, 50, 0.15);
-}
-
-
 /* =========================
    CAPA
    ========================= */
@@ -85,7 +78,6 @@
 
   padding: 15px;
 
-  transition: background-color 0.3s ease;
 }
 
 .card-capa img {
