@@ -24,6 +24,10 @@ function Cadastro() {
       alert('A senha deve conter pelo menos um número!')
       return
     }
+     if (!senha.match(/[a-zA-Z]/)) {
+      alert('A senha deve conter pelo menos uma letra!')
+      return
+    }
     setCarregando(true)
     try {
       const { data, error } = await supabase.auth.signUp({
