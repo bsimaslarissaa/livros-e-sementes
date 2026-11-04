@@ -10,6 +10,7 @@ import './pages/CSS/Login.css'
 import './pages/CSS/Cadastro.css'
 import './pages/CSS/Mural.css'
 import './pages/CSS/AdicionarSemente.css'
+import Footer from './components/Footer';
 
 import Header from './components/Header'
 import ChatFlutuante from './components/ChatFlutuante'
@@ -124,6 +125,8 @@ function App() {
 
       {/* CHAT FLUTUANTE */}
       <ChatFlutuante />
+
+<Footer />
 
     </BrowserRouter>
   )

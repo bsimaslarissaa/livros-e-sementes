@@ -16,6 +16,14 @@ function Cadastro() {
       alert('As senhas não coincidem! Por favor, verifique e tente novamente.')
       return
     }
+    if (senha.length < 8) {
+      alert('A senha deve conter pelo menos 8 ou mais caracteres!')
+      return
+    }
+    if (!senha.match(/\d/)) {
+      alert('A senha deve conter pelo menos um número!')
+      return
+    }
     setCarregando(true)
     try {
       const { data, error } = await supabase.auth.signUp({

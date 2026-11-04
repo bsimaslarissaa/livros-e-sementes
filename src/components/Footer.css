@@ -1,0 +1,22 @@
+.site-footer {
+  width: 100%;
+  background-color: #132317;
+  border-top: 1px solid #132317;
+  padding: 24px 0;
+  margin-top: auto; 
+}
+
+.footer-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.site-footer p {
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
