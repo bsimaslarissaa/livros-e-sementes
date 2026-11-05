@@ -364,9 +364,7 @@ html.dark .login-mensagem > div > p:not(.login-mensagem-subtitulo) {
 }
 
 
-/* =========================
-   RESPONSIVIDADE - LOGIN
-   ========================= */
+/* RESPONSIVIDADE - LOGIN*/
 
 @media (max-width: 900px) {
 
@@ -420,4 +418,45 @@ html.dark .login-mensagem > div > p:not(.login-mensagem-subtitulo) {
     font-size: 2rem;
   }
 
+}
+
+/* Campo de senha com ícone de visualização */
+
+.login-senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.login-senha-container input {
+  width: 100%;
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+.login-mostrar-senha {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+
+  color: #3d5c35;
+}
+
+.login-mostrar-senha:hover {
+  color: #567a43;
+}
+
+.login-mostrar-senha:focus-visible {
+  outline: 2px solid #3d5c35;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
