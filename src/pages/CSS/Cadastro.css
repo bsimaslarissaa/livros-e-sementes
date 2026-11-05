@@ -373,3 +373,44 @@ html.dark .cadastro-login a {
   }
 
 }
+
+/* Campos de senha com visualização */
+
+.cadastro-senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.cadastro-senha-container input {
+  width: 100%;
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+.cadastro-mostrar-senha {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+
+  color: #3d5c35;
+}
+
+.cadastro-mostrar-senha:hover {
+  color: #567a43;
+}
+
+.cadastro-mostrar-senha:focus-visible {
+  outline: 2px solid #3d5c35;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
